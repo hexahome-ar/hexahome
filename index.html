@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hexa Home · Viviendas Modulares · Mendoza, Argentina</title>
-  <meta name="description" content="Módulos habitacionales importados desde China. Expandable House y Apple Cabin disponibles en Argentina. Rápidos, durables y personalizables."/>
+  <meta name="description" content="Soluciones habitacionales importados desde China. Expandable House y Apple Cabin disponibles en Argentina. Rápidos, durables y personalizables."/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -65,6 +65,194 @@
     .product-cta:hover { opacity: 0.9; }
     .product-cta.green { background: #0f6e56; }
 
+    /* ==============================
+       GALERÍA DE IMÁGENES
+    ============================== */
+
+    /* Galería principal por línea de producto */
+    .gallery-section {
+      padding: 0 2rem 3rem;
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+
+    .gallery-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #e8640a;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .gallery-label.green { color: #0f6e56; }
+
+    /* Grid de fotos principal */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .gallery-grid.two-col {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #f0f0ee;
+      aspect-ratio: 4/3;
+      cursor: pointer;
+    }
+
+    .gallery-item.tall {
+      aspect-ratio: 3/4;
+    }
+
+    .gallery-item.wide {
+      grid-column: span 2;
+      aspect-ratio: 16/9;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.35s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.04);
+    }
+
+    /* Placeholder cuando no hay foto aún */
+    .gallery-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #f4f4f2;
+      border: 2px dashed #d5d5d0;
+      border-radius: 10px;
+      gap: 8px;
+      color: #aaa;
+      font-size: 12px;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .gallery-placeholder .ph-icon {
+      font-size: 28px;
+      opacity: 0.4;
+    }
+
+    .gallery-placeholder .ph-text {
+      font-size: 11px;
+      color: #bbb;
+      line-height: 1.4;
+    }
+
+    /* Overlay caption al hacer hover */
+    .gallery-item .caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.6));
+      color: #fff;
+      font-size: 12px;
+      padding: 1.5rem 0.75rem 0.6rem;
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+
+    .gallery-item:hover .caption {
+      opacity: 1;
+    }
+
+    /* Divisor entre galerías */
+    .gallery-divider {
+      height: 1px;
+      background: #e8e8e8;
+      margin: 3rem 0;
+    }
+
+    /* Lightbox */
+    .lightbox-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .lightbox-overlay.active {
+      display: flex;
+    }
+
+    .lightbox-img {
+      max-width: 90vw;
+      max-height: 88vh;
+      border-radius: 8px;
+      object-fit: contain;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+    }
+
+    .lightbox-close {
+      position: fixed;
+      top: 1.25rem;
+      right: 1.5rem;
+      color: #fff;
+      font-size: 32px;
+      cursor: pointer;
+      line-height: 1;
+      background: none;
+      border: none;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+
+    .lightbox-close:hover { opacity: 1; }
+
+    .lightbox-nav {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #fff;
+      font-size: 40px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+      padding: 0 0.5rem;
+    }
+
+    .lightbox-nav:hover { opacity: 1; }
+    .lightbox-prev { left: 1rem; }
+    .lightbox-next { right: 1rem; }
+
+    .lightbox-caption {
+      position: fixed;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,0.75);
+      font-size: 13px;
+      text-align: center;
+      white-space: nowrap;
+    }
+
     /* METRICS */
     .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; }
     .metric { background: #f8f8f6; border: 1px solid #ececec; border-radius: 10px; padding: 1rem; text-align: center; }
@@ -97,6 +285,155 @@
     footer { background: #111d2b; padding: 1.75rem 2rem; text-align: center; }
     footer p { color: #4a6a8a; font-size: 13px; }
 
+    /* ── FICHA TÉCNICA (modal/acordeón) ── */
+    .spec-toggle {
+      display: flex; align-items: center; justify-content: space-between;
+      width: 100%; background: #f4f4f2; border: none; border-top: 1px solid #e8e8e4;
+      padding: 10px 1.4rem; cursor: pointer; font-family: inherit;
+      font-size: 12px; font-weight: 700; letter-spacing: 0.5px;
+      color: #1a2e4a; text-transform: uppercase; transition: background 0.2s;
+    }
+    .spec-toggle:hover { background: #ebebea; }
+    .spec-toggle .arrow { font-size: 16px; transition: transform 0.25s; }
+    .spec-toggle.open .arrow { transform: rotate(180deg); }
+
+    .spec-panel {
+      display: none; padding: 0 1.4rem 1rem;
+      border-top: 1px solid #eee; background: #fafaf8;
+    }
+    .spec-panel.open { display: block; }
+
+    .spec-table { width: 100%; border-collapse: collapse; margin-top: 0.6rem; }
+    .spec-table tr { border-bottom: 1px solid #eeeeea; }
+    .spec-table tr:last-child { border-bottom: none; }
+    .spec-table td { padding: 6px 4px; font-size: 12px; vertical-align: top; }
+    .spec-table td:first-child {
+      font-weight: 600; color: #555; width: 42%; padding-right: 8px;
+      white-space: nowrap;
+    }
+    .spec-table td:last-child { color: #333; }
+
+    .spec-group-title {
+      font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: #e8640a;
+      padding: 10px 0 4px; display: block;
+    }
+
+    /* CATÁLOGO DE MODELOS */
+    .catalog-section { padding: 3.5rem 2rem; max-width: 1060px; margin: 0 auto; }
+    .catalog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+
+    .catalog-card {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.2s;
+    }
+    .catalog-card:hover {
+      box-shadow: 0 8px 28px rgba(0,0,0,0.1);
+      transform: translateY(-3px);
+    }
+
+    .catalog-img-wrap {
+      position: relative;
+      aspect-ratio: 16/10;
+      overflow: hidden;
+      background: #f0f0ee;
+    }
+    .catalog-img-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .catalog-card:hover .catalog-img-wrap img { transform: scale(1.05); }
+
+    .catalog-tag {
+      position: absolute; top: 10px; left: 10px;
+      font-size: 10px; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; padding: 4px 10px;
+      border-radius: 20px; backdrop-filter: blur(6px);
+    }
+    .ctag-orange { background: rgba(232,100,10,0.9); color: #fff; }
+    .ctag-blue   { background: rgba(26,46,74,0.88);  color: #fff; }
+    .ctag-green  { background: rgba(15,110,86,0.9);  color: #fff; }
+    .ctag-gray   { background: rgba(80,80,80,0.85);  color: #fff; }
+
+    .catalog-body { padding: 1.25rem 1.4rem 0.75rem; flex: 1; }
+    .catalog-model { font-size: 11px; font-weight: 600; color: #e8640a; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.3rem; }
+    .catalog-name { font-size: 17px; font-weight: 600; color: #1a2e4a; margin-bottom: 0.5rem; line-height: 1.3; }
+    .catalog-desc { font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 1rem; }
+
+    .catalog-specs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1rem; }
+    .cspec { background: #f4f4f2; border: 1px solid #e4e4e0; border-radius: 6px; font-size: 11px; padding: 3px 9px; color: #555; }
+
+    .catalog-footer { border-top: 1px solid #f0f0ee; padding: 0.9rem 1.4rem; }
+    .catalog-cta {
+      display: block; width: 100%; text-align: center;
+      background: #1a2e4a; color: #fff;
+      padding: 11px; border-radius: 8px;
+      font-size: 13px; font-weight: 500;
+      text-decoration: none; border: none; cursor: pointer;
+      font-family: inherit; transition: background 0.2s;
+    }
+    .catalog-cta:hover { background: #e8640a; }
+    .catalog-cta.alt { background: #e8640a; }
+    .catalog-cta.alt:hover { background: #cf560a; }
+
+    .catalog-use-row {
+      display: flex; flex-wrap: wrap; gap: 5px;
+      margin-bottom: 0.85rem;
+    }
+    .use-chip {
+      font-size: 11px; padding: 2px 8px;
+      border-radius: 4px; border: 1px solid #d5d5d0;
+      color: #777; background: #fafaf8;
+    }
+
+
+    /* MINI-GALERÍA POR CARD */
+    .card-gallery {
+      display: none;
+      padding: 0.75rem 1rem 1rem;
+      background: #f8f8f6;
+      border-top: 1px solid #eee;
+    }
+    .card-gallery.open { display: block; }
+
+    .card-gallery-toggle {
+      display: flex; align-items: center; justify-content: space-between;
+      width: 100%; background: #f0f0ee; border: none; border-top: 1px solid #e8e8e4;
+      padding: 9px 1.4rem; cursor: pointer; font-family: inherit;
+      font-size: 12px; font-weight: 700; letter-spacing: 0.5px;
+      color: #1a2e4a; text-transform: uppercase; transition: background 0.2s;
+    }
+    .card-gallery-toggle:hover { background: #e8e8e4; }
+    .card-gallery-toggle .gal-arrow { font-size: 16px; transition: transform 0.25s; }
+    .card-gallery-toggle.open .gal-arrow { transform: rotate(180deg); }
+
+    .card-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+      margin-top: 0.75rem;
+    }
+    .card-gallery-item {
+      aspect-ratio: 4/3;
+      border-radius: 6px;
+      overflow: hidden;
+      cursor: pointer;
+      background: #e8e8e4;
+    }
+    .card-gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      transition: transform 0.3s;
+    }
+    .card-gallery-item:hover img { transform: scale(1.06); }
+
     /* RESPONSIVE */
     @media (max-width: 640px) {
       .nav-links { display: none; }
@@ -104,6 +441,10 @@
       .contact-info { text-align: center; }
       .hero { padding: 3rem 1.25rem 4rem; }
       .section { padding: 2.5rem 1.25rem; }
+      .gallery-section { padding: 0 1.25rem 2.5rem; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+      .gallery-item.wide { grid-column: span 2; }
+      .lightbox-nav { display: none; }
     }
   </style>
 </head>
@@ -113,7 +454,7 @@
 <nav>
   <div class="nav-brand">HEXA <span>HOME</span> · Viviendas Modulares</div>
   <div class="nav-links">
-    <a href="#productos">Productos</a>
+    <a href="#catalogo">Catálogo</a>
     <a href="#proceso">Proceso</a>
     <a href="#contacto">Contacto</a>
   </div>
@@ -123,16 +464,16 @@
 <!-- HERO -->
 <section class="hero">
   <div class="logo-area">
-    <img src="logo.png" alt="Hexa Home" style="height: 60px; width: auto;" />
+    <img src="data:image/png;base64,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" alt="Hexa Home" style="height: 70px; width: auto;" />
     <div>
       <div class="brand-name">HEXA <span>HOME</span></div>
       <div class="brand-sub">Viviendas Modulares</div>
     </div>
   </div>
-  <h1>Módulos habitacionales premium,<br>desde China directo a tu terreno</h1>
+  <h1>Soluciones habitacionales,<br>desde China directo a tu terreno</h1>
   <p>Viviendas modernas, eficientes y personalizables. Importamos estructuras de última generación y las entregamos listas para habitar en Argentina.</p>
   <div class="cta-group">
-    <a href="#productos" class="btn-primary">Ver catálogo completo</a>
+    <a href="#catalogo" class="btn-primary">Ver catálogo de modelos</a>
     <a href="#contacto" class="btn-outline">Hablar por WhatsApp</a>
   </div>
 </section>
@@ -175,62 +516,776 @@
   </div>
 </section>
 
-<!-- PRODUCTOS -->
-<section class="section" id="productos">
-  <div class="section-title">Nuestros productos</div>
-  <div class="section-sub">Dos líneas principales, múltiples modelos y tamaños</div>
-  <div class="divider"></div>
-  <div class="products-grid">
 
-    <!-- EXPANDABLE HOUSE -->
-    <div class="product-card">
-      <div class="product-header">
-        <span class="product-tag tag-orange">Expandable House</span>
-        <div class="product-name">Casa Expandible 4D</div>
-        <div class="product-desc">Vivienda plegable y expandible de fabricación industrial. Se despliega desde un contenedor hasta duplicar su superficie habitable. Ideal como vivienda permanente, oficina o alojamiento.</div>
-      </div>
-      <ul class="specs-list">
-        <li><span class="spec-dot"></span>Modelos de 20FT y 40FT disponibles</li>
-        <li><span class="spec-dot"></span>20FT: hasta 4 personas · 4.5 Ton · expandido 6.32m de ancho</li>
-        <li><span class="spec-dot"></span>40FT: hasta 6 personas · 7.9 Ton · expandido 11.38m de largo</li>
-        <li><span class="spec-dot"></span>Instalación en horas, sin obra mayor</li>
-        <li><span class="spec-dot"></span>Consumo eléctrico: 12 KW · Anti-sísmica Niv. 8</li>
-        <li><span class="spec-dot"></span>Distribuciones de 1 a 3 dormitorios</li>
-      </ul>
-      <div class="badge-row">
-        <span class="badge">Cocina integrada</span>
-        <span class="badge">Baño completo</span>
-        <span class="badge">Aire acond. opcional</span>
-        <span class="badge">Color personalizable</span>
-      </div>
-      <a href="#contacto" class="product-cta">Consultar precio y disponibilidad →</a>
-    </div>
+<!-- ==============================
+     CATÁLOGO COMPLETO DE MODELOS
+============================== -->
+<section id="catalogo" style="background:#fff; padding: 0 0 1rem;">
+  <div class="catalog-section">
+    <div class="section-title">Catálogo completo de modelos</div>
+    <div class="section-sub">Contenedores modulares · Viviendas prefabricadas · Oficinas · Usos industriales y turísticos</div>
+    <div class="divider"></div>
 
-    <!-- APPLE CABIN -->
-    <div class="product-card">
-      <div class="product-header">
-        <span class="product-tag tag-green">Apple Cabin</span>
-        <div class="product-name">Cápsulas habitacionales</div>
-        <div class="product-desc">Diseño futurista de líneas curvas con grandes ventanales de vidrio templado. Ideal para glamping, alojamiento turístico, oficinas boutique o primera vivienda de diseño.</div>
+    <div class="catalog-grid">
+
+      <!-- ══════════════════════════════════════
+           MODELO 1 · EH-01 · Casa Expandible Premium
+      ══════════════════════════════════════ -->
+      <div class="catalog-card">
+        <div class="catalog-img-wrap">
+          <img src="https://sc04.alicdn.com/kf/H54436b00a054400aa47c5396116624909.jpg"
+               alt="Casa Modular Prefabricada Expandible" loading="lazy"/>
+          <span class="catalog-tag ctag-orange">Más popular</span>
+        </div>
+        <div class="catalog-body">
+          <div class="catalog-model">Modelo EH-01</div>
+          <div class="catalog-name">Casa Expandible Premium</div>
+          <div class="catalog-desc">Vivienda prefabricada plegable que se transporta como contenedor estándar y se expande en el sitio. Lista para habitar en pocas horas, sin obra civil ni grúa.</div>
+          <div class="catalog-use-row">
+            <span class="use-chip">🏠 Vivienda permanente</span>
+            <span class="use-chip">🏢 Oficina</span>
+            <span class="use-chip">⛏️ Campamentos industriales</span>
+            <span class="use-chip">🌿 Glamping</span>
+          </div>
+          <div class="catalog-specs">
+            <span class="cspec">20FT y 40FT</span>
+            <span class="cspec">Acero galvanizado Q235</span>
+            <span class="cspec">Anti-sísmica Niv. 8</span>
+            <span class="cspec">Instalación &lt; 4 horas</span>
+            <span class="cspec">1–3 dormitorios</span>
+          </div>
+        </div>
+
+        <!-- FICHA TÉCNICA DESPLEGABLE -->
+
+        <button class="card-gallery-toggle" onclick="toggleCardGallery(this)">
+          📷 Ver galería de fotos <span class="gal-arrow">▾</span>
+        </button>
+        <div class="card-gallery">
+          <div class="card-gallery-grid">
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/H54436b00a054400aa47c5396116624909.jpg" alt="Casa Expandible · exterior desplegado" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/H0c8c5b30d67e4e3db3e6e1e2a6b7d8f8r.jpg" alt="Interior · living comedor" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1b_0pXlDH8KJjy1Xcq6ApdXXaZ.jpg" alt="Dormitorio principal" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1y0CiXmzqK1RjSZFpq6ykSXXa3.jpg" alt="Casa Expandible · modelo 40FT" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1CkSpXoHqK1RjSZFgq6y7JXXam.jpg" alt="Baño completo integrado" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/H8be0e2b5e4664c2b8c9d9e1f2a3b4c5d.jpg" alt="Proceso de instalación" loading="lazy" />
+          </div>
+          </div>
+        </div>
+        <button class="spec-toggle" onclick="toggleSpecs(this)">
+          Ver ficha técnica completa <span class="arrow">▾</span>
+        </button>
+        <div class="spec-panel">
+          <span class="spec-group-title">📐 Dimensiones</span>
+          <table class="spec-table">
+            <tr><td>Tamaño plegado (20FT)</td><td>6.06 × 2.44 × 2.59 m</td></tr>
+            <tr><td>Tamaño expandido (20FT)</td><td>6.06 × 6.32 × 2.59 m</td></tr>
+            <tr><td>Tamaño plegado (40FT)</td><td>12.19 × 2.44 × 2.59 m</td></tr>
+            <tr><td>Tamaño expandido (40FT)</td><td>12.19 × 6.32 × 2.59 m</td></tr>
+            <tr><td>Altura interior libre</td><td>2.40 m</td></tr>
+            <tr><td>Superficie habitable 20FT</td><td>~38 m² expandido</td></tr>
+            <tr><td>Superficie habitable 40FT</td><td>~77 m² expandido</td></tr>
+            <tr><td>Peso (20FT)</td><td>4.500 kg</td></tr>
+            <tr><td>Peso (40FT)</td><td>7.900 kg</td></tr>
+          </table>
+
+          <span class="spec-group-title">🔩 Estructura y materiales</span>
+          <table class="spec-table">
+            <tr><td>Estructura principal</td><td>Acero Q235 galvanizado en caliente</td></tr>
+            <tr><td>Espesor perfiles</td><td>4–6 mm según elemento</td></tr>
+            <tr><td>Paneles de pared</td><td>Sandwich EPS / poliuretano 75 mm</td></tr>
+            <tr><td>Panel de techo</td><td>Sandwich EPS 100 mm con cubierta metálica</td></tr>
+            <tr><td>Panel de piso</td><td>Bambú o madera contrachapada 18 mm + PVC antideslizante</td></tr>
+            <tr><td>Ventanas</td><td>Aluminio con doble vidrio hermético 5+6+5 mm</td></tr>
+            <tr><td>Puertas</td><td>Acero con aislación, cerradura de seguridad</td></tr>
+            <tr><td>Tratamiento anticorrosión</td><td>Galvanizado + pintura epóxi en polvo</td></tr>
+          </table>
+
+          <span class="spec-group-title">🌡️ Aislación y confort</span>
+          <table class="spec-table">
+            <tr><td>Aislación térmica paredes</td><td>0.048 W/m·K</td></tr>
+            <tr><td>Resistencia al fuego</td><td>&gt; 2 horas (exterior)</td></tr>
+            <tr><td>Aislación acústica</td><td>≥ 30 dB</td></tr>
+            <tr><td>Rango temperatura uso</td><td>−30 °C a +55 °C</td></tr>
+            <tr><td>Resistencia viento</td><td>Hasta 120 km/h (Clase 12)</td></tr>
+            <tr><td>Resistencia sísmica</td><td>Grado 8 (escala Mercalli)</td></tr>
+            <tr><td>Resistencia carga techo</td><td>≥ 0.5 kN/m²</td></tr>
+          </table>
+
+          <span class="spec-group-title">⚡ Instalación eléctrica</span>
+          <table class="spec-table">
+            <tr><td>Tensión de trabajo</td><td>220V / 50Hz (adaptable a 110V)</td></tr>
+            <tr><td>Consumo máximo</td><td>12 kW</td></tr>
+            <tr><td>Tablero eléctrico</td><td>Incluido con disyuntores y diferencial</td></tr>
+            <tr><td>Tomas de corriente</td><td>Múltiples puntos distribuidos</td></tr>
+            <tr><td>Iluminación</td><td>LED incluida en techo y paredes</td></tr>
+            <tr><td>Cableado</td><td>Embutido en canaletas internas</td></tr>
+            <tr><td>Puesta a tierra</td><td>Preparado — requiere conexión en destino</td></tr>
+          </table>
+
+          <span class="spec-group-title">🚿 Instalación sanitaria</span>
+          <table class="spec-table">
+            <tr><td>Baño completo</td><td>Incluido (inodoro, ducha, lavamanos)</td></tr>
+            <tr><td>Cocina</td><td>Incluida con mesada y bacha de acero inox</td></tr>
+            <tr><td>Cañerías</td><td>PPR / PVC, preparadas para conexión a red</td></tr>
+            <tr><td>Agua caliente</td><td>Preparado para termotanque eléctrico (no incluido)</td></tr>
+            <tr><td>Desagüe</td><td>Salida estándar para conectar a pozo o red cloacal</td></tr>
+          </table>
+
+          <span class="spec-group-title">🏗️ Instalación y transporte</span>
+          <table class="spec-table">
+            <tr><td>Tiempo de montaje</td><td>2–4 horas (2 personas)</td></tr>
+            <tr><td>Herramientas necesarias</td><td>Mínimas — sin soldadura</td></tr>
+            <tr><td>Cimentación</td><td>Bases de hormigón puntuales o platea</td></tr>
+            <tr><td>Transporte</td><td>Contenedor estándar ISO 20FT / 40FT</td></tr>
+            <tr><td>Reutilizaciones</td><td>+50 ciclos de montaje/desmontaje</td></tr>
+            <tr><td>Vida útil estimada</td><td>+30 años con mantenimiento básico</td></tr>
+          </table>
+        </div>
+
+        <div class="catalog-footer">
+          <a href="#contacto" class="catalog-cta alt">Consultar precio →</a>
+        </div>
       </div>
-      <ul class="specs-list">
-        <li><span class="spec-dot"></span>9 modelos disponibles (AC01 a AC09 + variantes AD/AE)</li>
-        <li><span class="spec-dot"></span>Desde 5 m² (AE01) hasta 134 m² (AD02 multi-módulo)</li>
-        <li><span class="spec-dot"></span>1 a 16 personas según modelo elegido</li>
-        <li><span class="spec-dot"></span>Vidrio templado insulado con aislación térmica</li>
-        <li><span class="spec-dot"></span>Disponible en 1 y 2 plantas · conectable en serie</li>
-        <li><span class="spec-dot"></span>Estructura liviana de acero galvanizado</li>
-      </ul>
-      <div class="badge-row">
-        <span class="badge">Glamping / turismo</span>
-        <span class="badge">Primera vivienda</span>
-        <span class="badge">Oficina / estudio</span>
-        <span class="badge">Multi-módulo</span>
+
+      <!-- ══════════════════════════════════════
+           MODELO 2 · GM-20 · Garaje / Depósito Modular
+      ══════════════════════════════════════ -->
+      <div class="catalog-card">
+        <div class="catalog-img-wrap">
+          <img src="https://shopcdnpro.grainajz.com/category/443492/3454/5f199ddbd38233628f390a56bc210a64/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_2025-08-25_161509_736.jpg"
+               alt="Garaje Metálico Modular Portátil 20FT" loading="lazy"/>
+          <span class="catalog-tag ctag-blue">Versátil</span>
+        </div>
+        <div class="catalog-body">
+          <div class="catalog-model">Modelo GM-20</div>
+          <div class="catalog-name">Garaje / Depósito Modular 20FT</div>
+          <div class="catalog-desc">Contenedor modular compacto desmontable y portátil. Estructura metálica de alta resistencia. Ideal como garaje, depósito, vestuario de obra o módulo de servicios.</div>
+          <div class="catalog-use-row">
+            <span class="use-chip">🚗 Garaje</span>
+            <span class="use-chip">📦 Depósito</span>
+            <span class="use-chip">🔧 Obra</span>
+            <span class="use-chip">🏭 Industrial</span>
+          </div>
+          <div class="catalog-specs">
+            <span class="cspec">20FT</span>
+            <span class="cspec">Acero estructural</span>
+            <span class="cspec">Desmontable</span>
+            <span class="cspec">Portátil</span>
+          </div>
+        </div>
+
+
+        <button class="card-gallery-toggle" onclick="toggleCardGallery(this)">
+          📷 Ver galería de fotos <span class="gal-arrow">▾</span>
+        </button>
+        <div class="card-gallery">
+          <div class="card-gallery-grid">
+          <div class="card-gallery-item">
+            <img src="https://shopcdnpro.grainajz.com/category/443492/3454/5f199ddbd38233628f390a56bc210a64/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_2025-08-25_161509_736.jpg" alt="Garaje modular · exterior" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1KdCaXoHqK1RjSZJnq6zNLpXaF.jpg" alt="Interior depósito" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1gQiXXlTH8KJjy0Fiq6ARsXXa1.jpg" alt="Garaje · puerta seccional" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1eYCbXmzqK1RjSZFpq6ykSXXaA.jpg" alt="Módulo industrial" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1w_ifXlfH8KJjy1Xbq6zLdXXaF.jpg" alt="Depósito en obra" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1R1CcXoHqK1RjSZFEq6AGMXXaI.jpg" alt="Módulo de servicios" loading="lazy" />
+          </div>
+          </div>
+        </div>
+        <button class="spec-toggle" onclick="toggleSpecs(this)">
+          Ver ficha técnica completa <span class="arrow">▾</span>
+        </button>
+        <div class="spec-panel">
+          <span class="spec-group-title">📐 Dimensiones</span>
+          <table class="spec-table">
+            <tr><td>Largo exterior</td><td>6.06 m (20FT)</td></tr>
+            <tr><td>Ancho exterior</td><td>2.44 m</td></tr>
+            <tr><td>Alto exterior</td><td>2.59 m</td></tr>
+            <tr><td>Superficie interior útil</td><td>~13.5 m²</td></tr>
+            <tr><td>Peso total</td><td>~2.200 kg</td></tr>
+            <tr><td>Carga útil máxima</td><td>5.000 kg</td></tr>
+          </table>
+
+          <span class="spec-group-title">🔩 Estructura y materiales</span>
+          <table class="spec-table">
+            <tr><td>Estructura</td><td>Acero estructural Q235 galvanizado</td></tr>
+            <tr><td>Paneles laterales</td><td>Chapa de acero corrugada galvanizada 2 mm</td></tr>
+            <tr><td>Cubierta de techo</td><td>Chapa galvanizada con pendiente de escurrimiento</td></tr>
+            <tr><td>Piso</td><td>Entablonado de madera tratada o chapa antideslizante</td></tr>
+            <tr><td>Puerta de acceso</td><td>Puerta seccional metálica o doble hoja batiente</td></tr>
+            <tr><td>Uniones</td><td>Bulonería de alta resistencia — sin soldadura en obra</td></tr>
+            <tr><td>Acabado exterior</td><td>Pintura epoxi anticorrosiva, colores a elección</td></tr>
+          </table>
+
+          <span class="spec-group-title">🌡️ Prestaciones</span>
+          <table class="spec-table">
+            <tr><td>Resistencia viento</td><td>Hasta 100 km/h</td></tr>
+            <tr><td>Resistencia carga nieve</td><td>≥ 0.5 kN/m²</td></tr>
+            <tr><td>Resistencia sísmica</td><td>Grado 7</td></tr>
+            <tr><td>Vida útil estimada</td><td>+20 años</td></tr>
+          </table>
+
+          <span class="spec-group-title">⚡ Opciones eléctricas</span>
+          <table class="spec-table">
+            <tr><td>Instalación eléctrica</td><td>Opcional — puntos de luz y tomas</td></tr>
+            <tr><td>Tensión</td><td>220V / 50Hz</td></tr>
+            <tr><td>Iluminación LED</td><td>Disponible como opción</td></tr>
+          </table>
+
+          <span class="spec-group-title">🏗️ Instalación y transporte</span>
+          <table class="spec-table">
+            <tr><td>Tiempo de montaje</td><td>4–8 horas (2 personas)</td></tr>
+            <tr><td>Cimentación</td><td>Bases puntuales o losa de hormigón</td></tr>
+            <tr><td>Transporte</td><td>Flat-pack — piezas apilables en contenedor</td></tr>
+            <tr><td>Reutilizaciones</td><td>Desmontable y reubicable ilimitado</td></tr>
+          </table>
+        </div>
+
+        <div class="catalog-footer">
+          <a href="#contacto" class="catalog-cta">Consultar precio →</a>
+        </div>
       </div>
-      <a href="#contacto" class="product-cta green">Consultar modelos y precios →</a>
-    </div>
-  </div>
+
+      <!-- ══════════════════════════════════════
+           MODELO 3 · VL-20A · Vivienda Lujo 3 Dorm. (A)
+      ══════════════════════════════════════ -->
+      <div class="catalog-card">
+        <div class="catalog-img-wrap">
+          <img src="https://sc04.alicdn.com/kf/S0e4e2c7dcf434f138be1302943c7586eq.jpg"
+               alt="Casa Prefabricada de Lujo 3 Dormitorios" loading="lazy"/>
+          <span class="catalog-tag ctag-orange">Premium</span>
+        </div>
+        <div class="catalog-body">
+          <div class="catalog-model">Modelo VL-20A</div>
+          <div class="catalog-name">Vivienda de Lujo · 3 Dormitorios</div>
+          <div class="catalog-desc">Casa prefabricada portátil de 20 pies en acero ligero con diseño moderno tipo villa. Terminaciones de alta calidad. Lista para habitar con conexiones de agua y electricidad.</div>
+          <div class="catalog-use-row">
+            <span class="use-chip">🏡 Residencia permanente</span>
+            <span class="use-chip">🌄 Turismo premium</span>
+            <span class="use-chip">🏕️ Lodge / cabaña</span>
+          </div>
+          <div class="catalog-specs">
+            <span class="cspec">20FT</span>
+            <span class="cspec">3 dormitorios</span>
+            <span class="cspec">Acero ligero</span>
+            <span class="cspec">Alta terminación</span>
+          </div>
+        </div>
+
+
+        <button class="card-gallery-toggle" onclick="toggleCardGallery(this)">
+          📷 Ver galería de fotos <span class="gal-arrow">▾</span>
+        </button>
+        <div class="card-gallery">
+          <div class="card-gallery-grid">
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/S0e4e2c7dcf434f138be1302943c7586eq.jpg" alt="Vivienda de lujo · exterior" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1qLCXXlfH8KJjy1Xbq6zLdXXaJ.jpg" alt="Interior · living premium" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1b0ifXmzqK1RjSZFpq6ykSXXaT.jpg" alt="Dormitorio principal" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1J4CeXmzqK1RjSZFpq6ykSXXaQ.jpg" alt="Baño premium" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1kHifXoHqK1RjSZFgq6y7JXXaY.jpg" alt="Cocina integrada" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1F2CbXoHqK1RjSZFEq6AGMXXaZ.jpg" alt="Detalle exterior · techo" loading="lazy" />
+          </div>
+          </div>
+        </div>
+        <button class="spec-toggle" onclick="toggleSpecs(this)">
+          Ver ficha técnica completa <span class="arrow">▾</span>
+        </button>
+        <div class="spec-panel">
+          <span class="spec-group-title">📐 Dimensiones</span>
+          <table class="spec-table">
+            <tr><td>Largo exterior</td><td>6.06 m</td></tr>
+            <tr><td>Ancho exterior</td><td>2.44 m</td></tr>
+            <tr><td>Alto exterior</td><td>2.90 m (con techo inclinado)</td></tr>
+            <tr><td>Superficie habitable</td><td>~14.5 m² (expandible con módulos)</td></tr>
+            <tr><td>Dormitorios</td><td>3 (distribuidos en módulos conectables)</td></tr>
+            <tr><td>Peso</td><td>~3.500 kg</td></tr>
+          </table>
+
+          <span class="spec-group-title">🔩 Estructura y materiales</span>
+          <table class="spec-table">
+            <tr><td>Estructura</td><td>Acero liviano galvanizado G550 (Light Steel Frame)</td></tr>
+            <tr><td>Paneles exteriores</td><td>Fibrocemento 8 mm + aislación EPS 50 mm</td></tr>
+            <tr><td>Paneles interiores</td><td>Placa de yeso 12 mm con terminación pintada</td></tr>
+            <tr><td>Techo</td><td>Chapa metálica perfilada con membrana impermeabilizante</td></tr>
+            <tr><td>Piso</td><td>Parquet de madera laminada o cerámica (a elección)</td></tr>
+            <tr><td>Carpintería exterior</td><td>Aluminio con doble vidrio 5+12+5 mm</td></tr>
+            <tr><td>Puertas interiores</td><td>Madera MDF con terminación lacada</td></tr>
+            <tr><td>Puerta principal</td><td>Acero con cerradura multipunto</td></tr>
+          </table>
+
+          <span class="spec-group-title">🌡️ Aislación y confort</span>
+          <table class="spec-table">
+            <tr><td>Aislación térmica</td><td>EPS 50 mm + lana de vidrio 75 mm en techo</td></tr>
+            <tr><td>Coeficiente térmico</td><td>≤ 0.35 W/m²·K</td></tr>
+            <tr><td>Aislación acústica</td><td>≥ 35 dB</td></tr>
+            <tr><td>Resistencia al fuego</td><td>EI 30 (30 minutos)</td></tr>
+            <tr><td>Rango temperatura</td><td>−20 °C a +50 °C</td></tr>
+            <tr><td>Resistencia viento</td><td>Hasta 110 km/h</td></tr>
+            <tr><td>Resistencia sísmica</td><td>Grado 8</td></tr>
+          </table>
+
+          <span class="spec-group-title">⚡ Instalación eléctrica</span>
+          <table class="spec-table">
+            <tr><td>Tensión</td><td>220V / 50Hz</td></tr>
+            <tr><td>Tablero principal</td><td>Caja de breakers + diferencial incluidos</td></tr>
+            <tr><td>Circuitos</td><td>Iluminación / tomas / AC / cocina — independientes</td></tr>
+            <tr><td>Tomas de corriente</td><td>6–10 puntos según distribución</td></tr>
+            <tr><td>Puntos de luz</td><td>LED integrado en cielorraso</td></tr>
+            <tr><td>Pre-instalación AC</td><td>Incluida (equipo no incluido)</td></tr>
+            <tr><td>Cableado</td><td>Embutido en canaletas PVC ignífugas</td></tr>
+          </table>
+
+          <span class="spec-group-title">🚿 Instalación sanitaria</span>
+          <table class="spec-table">
+            <tr><td>Baño</td><td>Completo: inodoro, ducha, lavamanos, espejo</td></tr>
+            <tr><td>Cocina</td><td>Mesada con bacha doble acero inox + gabinetes</td></tr>
+            <tr><td>Cañerías</td><td>PPR para agua fría/caliente — conexión estándar</td></tr>
+            <tr><td>Agua caliente</td><td>Pre-instalación para termotanque 20–50 lts</td></tr>
+            <tr><td>Desagüe</td><td>PVC Ø110 mm — salida inferior para conexión a red</td></tr>
+            <tr><td>Impermeabilización</td><td>Membrana líquida en baño y cocina</td></tr>
+          </table>
+
+          <span class="spec-group-title">🏗️ Instalación</span>
+          <table class="spec-table">
+            <tr><td>Tiempo de montaje</td><td>1–3 días (equipo de 3 personas)</td></tr>
+            <tr><td>Cimentación</td><td>Losa de hormigón o bases corridas</td></tr>
+            <tr><td>Transporte</td><td>Contenedor 20FT estándar</td></tr>
+            <tr><td>Vida útil</td><td>+50 años estructura / +15 años terminaciones</td></tr>
+          </table>
+        </div>
+
+        <div class="catalog-footer">
+          <a href="#contacto" class="catalog-cta alt">Consultar precio →</a>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════
+           MODELO 4 · VL-20B · Vivienda Portátil 3 Dorm. (B)
+      ══════════════════════════════════════ -->
+      <div class="catalog-card">
+        <div class="catalog-img-wrap">
+          <img src="https://sc04.alicdn.com/kf/Hc7d2f538d90c4c91b16563a2ce44f8caS.jpg"
+               alt="Casa Prefabricada Portátil 3 Dormitorios" loading="lazy"/>
+          <span class="catalog-tag ctag-green">Nuevo modelo</span>
+        </div>
+        <div class="catalog-body">
+          <div class="catalog-model">Modelo VL-20B</div>
+          <div class="catalog-name">Vivienda Portátil · 3 Dormitorios</div>
+          <div class="catalog-desc">Variante moderna de vivienda prefabricada en acero ligero con distribución optimizada para familias. Diseño contemporáneo con grandes ventanales. Llave en mano.</div>
+          <div class="catalog-use-row">
+            <span class="use-chip">🏠 Vivienda familiar</span>
+            <span class="use-chip">🛖 Alojamiento</span>
+            <span class="use-chip">🏞️ Campo / finca</span>
+          </div>
+          <div class="catalog-specs">
+            <span class="cspec">20FT</span>
+            <span class="cspec">3 dormitorios</span>
+            <span class="cspec">Llave en mano</span>
+            <span class="cspec">Sin obra mayor</span>
+          </div>
+        </div>
+
+
+        <button class="card-gallery-toggle" onclick="toggleCardGallery(this)">
+          📷 Ver galería de fotos <span class="gal-arrow">▾</span>
+        </button>
+        <div class="card-gallery">
+          <div class="card-gallery-grid">
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/Hc7d2f538d90c4c91b16563a2ce44f8caS.jpg" alt="Vivienda portátil · 3 dormitorios · exterior" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1c3ifXmzqK1RjSZFpq6ykSXXaU.jpg" alt="Living comedor" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1o0CbXmzqK1RjSZFpq6ykSXXaV.jpg" alt="Dormitorio 1" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1p4CXXlfH8KJjy1Xbq6zLdXXaW.jpg" alt="Ventanales panorámicos" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1m1ifXmzqK1RjSZFpq6ykSXXaX.jpg" alt="Baño moderno" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1nHCbXoHqK1RjSZFEq6AGMXXaX.jpg" alt="Fachada moderna" loading="lazy" />
+          </div>
+          </div>
+        </div>
+        <button class="spec-toggle" onclick="toggleSpecs(this)">
+          Ver ficha técnica completa <span class="arrow">▾</span>
+        </button>
+        <div class="spec-panel">
+          <span class="spec-group-title">📐 Dimensiones</span>
+          <table class="spec-table">
+            <tr><td>Largo exterior</td><td>6.06 m</td></tr>
+            <tr><td>Ancho exterior</td><td>2.44 m</td></tr>
+            <tr><td>Alto exterior</td><td>3.10 m (techos altos)</td></tr>
+            <tr><td>Altura interior</td><td>2.70 m</td></tr>
+            <tr><td>Superficie habitable</td><td>~15 m² (ampliable por módulos)</td></tr>
+            <tr><td>Dormitorios</td><td>3 en configuración modular</td></tr>
+            <tr><td>Peso estimado</td><td>~3.800 kg</td></tr>
+          </table>
+
+          <span class="spec-group-title">🔩 Estructura y materiales</span>
+          <table class="spec-table">
+            <tr><td>Estructura</td><td>Light Steel Frame — acero galvanizado G550</td></tr>
+            <tr><td>Revestimiento exterior</td><td>Panel compuesto de aluminio (ACM) o fibrocemento</td></tr>
+            <tr><td>Aislación integrada</td><td>Lana mineral 75 mm entre perfiles</td></tr>
+            <tr><td>Revestimiento interior</td><td>Placa de yeso 12.5 mm con terminación</td></tr>
+            <tr><td>Techo</td><td>Panel sandwich 100 mm con cubierta metálica</td></tr>
+            <tr><td>Piso</td><td>Entablonado flotante de madera laminada</td></tr>
+            <tr><td>Ventanas</td><td>Aluminio color negro / blanco con DVH</td></tr>
+            <tr><td>Diseño</td><td>Fachada moderna con grandes ventanales</td></tr>
+          </table>
+
+          <span class="spec-group-title">🌡️ Aislación y confort</span>
+          <table class="spec-table">
+            <tr><td>Aislación térmica</td><td>Lana mineral 75 mm paredes + 100 mm techo</td></tr>
+            <tr><td>Coeficiente térmico</td><td>≤ 0.30 W/m²·K</td></tr>
+            <tr><td>Aislación acústica</td><td>≥ 38 dB</td></tr>
+            <tr><td>Resistencia al fuego</td><td>EI 60</td></tr>
+            <tr><td>Resistencia sísmica</td><td>Grado 8</td></tr>
+            <tr><td>Resistencia viento</td><td>Hasta 120 km/h</td></tr>
+          </table>
+
+          <span class="spec-group-title">⚡ Instalación eléctrica</span>
+          <table class="spec-table">
+            <tr><td>Tensión</td><td>220V / 50Hz</td></tr>
+            <tr><td>Tablero</td><td>Caja estanca con breakers + diferencial + puesta tierra</td></tr>
+            <tr><td>Circuitos</td><td>Mínimo 4 circuitos independientes</td></tr>
+            <tr><td>Tomas</td><td>8–12 puntos según plano</td></tr>
+            <tr><td>Iluminación</td><td>Embutida LED en todas las habitaciones</td></tr>
+            <tr><td>Pre-inst. AC</td><td>Split / minisplit (equipo no incluido)</td></tr>
+            <tr><td>Exterior</td><td>Punto de luz y toma exterior IP44</td></tr>
+          </table>
+
+          <span class="spec-group-title">🚿 Instalación sanitaria</span>
+          <table class="spec-table">
+            <tr><td>Baño principal</td><td>Ducha + inodoro + vanitory + espejo con luz</td></tr>
+            <tr><td>Cocina</td><td>Muebles bajo mesada + alacenas + bacha acero inox</td></tr>
+            <tr><td>Cañerías agua</td><td>PPR bicapa — fría y caliente</td></tr>
+            <tr><td>Termotanque</td><td>Pre-instalación — eléctrico o solar (no incluido)</td></tr>
+            <tr><td>Desagüe</td><td>PVC Ø110 mm sifones en todos los artefactos</td></tr>
+          </table>
+
+          <span class="spec-group-title">🏗️ Instalación</span>
+          <table class="spec-table">
+            <tr><td>Tiempo de montaje</td><td>2–4 días (equipo de 4 personas)</td></tr>
+            <tr><td>Cimentación recomendada</td><td>Losa de hormigón H-21 o bases corridas</td></tr>
+            <tr><td>Transporte</td><td>Contenedor 20FT — piezas flat-pack</td></tr>
+            <tr><td>Vida útil</td><td>+50 años estructura metálica</td></tr>
+          </table>
+        </div>
+
+        <div class="catalog-footer">
+          <a href="#contacto" class="catalog-cta">Consultar precio →</a>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════
+           MODELO 5 · 4D-EXP · Casa Expandible 4D
+      ══════════════════════════════════════ -->
+      <div class="catalog-card">
+        <div class="catalog-img-wrap">
+          <img src="https://sc04.alicdn.com/kf/Hd62bf15b22f94d9aa8ae510ff1f1aaf25.png"
+               alt="Casa Contenedor Expandible 4D" loading="lazy"/>
+          <span class="catalog-tag ctag-orange">Estrella</span>
+        </div>
+        <div class="catalog-body">
+          <div class="catalog-model">Modelo 4D-EXP</div>
+          <div class="catalog-name">Casa Expandible 4D · Nueva Generación</div>
+          <div class="catalog-desc">Contenedor que se expande en cuatro direcciones simultáneas, triplicando la superficie habitable sin grúa. La solución más rápida del mercado para vivienda, ocio o trabajo remoto.</div>
+          <div class="catalog-use-row">
+            <span class="use-chip">🏠 Vivienda</span>
+            <span class="use-chip">💼 Oficina</span>
+            <span class="use-chip">⛏️ Minería / petróleo</span>
+            <span class="use-chip">🌿 Glamping</span>
+          </div>
+          <div class="catalog-specs">
+            <span class="cspec">Expandible 4D</span>
+            <span class="cspec">Sin grúa</span>
+            <span class="cspec">Anti-sísmica Niv. 8</span>
+            <span class="cspec">Personalizable</span>
+          </div>
+        </div>
+
+
+        <button class="card-gallery-toggle" onclick="toggleCardGallery(this)">
+          📷 Ver galería de fotos <span class="gal-arrow">▾</span>
+        </button>
+        <div class="card-gallery">
+          <div class="card-gallery-grid">
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/Hd62bf15b22f94d9aa8ae510ff1f1aaf25.png" alt="Casa 4D · expandida · exterior" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1r0CXXlfH8KJjy1Xbq6zLdXXaY.jpg" alt="Proceso de expansión" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1q1ifXmzqK1RjSZFpq6ykSXXaZ.jpg" alt="Interior expandido · living" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1s4CbXoHqK1RjSZFEq6AGMXXaY.jpg" alt="Cocina y comedor abierto" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1tHCXXlfH8KJjy1Xbq6zLdXXaZ.jpg" alt="Dormitorio en módulo 4D" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1u1ifXmzqK1RjSZFpq6ykSXXa0.jpg" alt="Transporte en contenedor" loading="lazy" />
+          </div>
+          </div>
+        </div>
+        <button class="spec-toggle" onclick="toggleSpecs(this)">
+          Ver ficha técnica completa <span class="arrow">▾</span>
+        </button>
+        <div class="spec-panel">
+          <span class="spec-group-title">📐 Dimensiones</span>
+          <table class="spec-table">
+            <tr><td>Tamaño cerrado (transporte)</td><td>6.06 × 2.44 × 2.59 m</td></tr>
+            <tr><td>Tamaño expandido total</td><td>hasta 11.5 × 7.2 × 2.90 m</td></tr>
+            <tr><td>Superficie plegada</td><td>~14.8 m²</td></tr>
+            <tr><td>Superficie expandida</td><td>~55–80 m² según modelo</td></tr>
+            <tr><td>Altura interior expandido</td><td>2.60 m</td></tr>
+            <tr><td>Peso plegado</td><td>~5.500 kg</td></tr>
+          </table>
+
+          <span class="spec-group-title">🔩 Estructura y materiales</span>
+          <table class="spec-table">
+            <tr><td>Estructura</td><td>Acero Q345 de alta resistencia galvanizado</td></tr>
+            <tr><td>Paneles expandibles</td><td>Sandwich aluminio + EPS 75 mm</td></tr>
+            <tr><td>Techo expandible</td><td>Panel sandwich 100 mm impermeable</td></tr>
+            <tr><td>Piso</td><td>Acero + bambú 18 mm + vinílico antideslizante</td></tr>
+            <tr><td>Mecanismo expansión</td><td>Sistema hidráulico o manual asistido</td></tr>
+            <tr><td>Sellado perimetral</td><td>Burletes de EPDM — resistente a lluvia y polvo</td></tr>
+            <tr><td>Ventanas</td><td>Aluminio DVH — panorámicas en secciones expandidas</td></tr>
+            <tr><td>Acabado exterior</td><td>Pintura poliéster horneada, colores personalizables</td></tr>
+          </table>
+
+          <span class="spec-group-title">🌡️ Aislación y confort</span>
+          <table class="spec-table">
+            <tr><td>Aislación térmica</td><td>EPS 75 mm + barrera de vapor</td></tr>
+            <tr><td>Coeficiente térmico</td><td>0.048 W/m·K</td></tr>
+            <tr><td>Aislación acústica</td><td>≥ 32 dB</td></tr>
+            <tr><td>Resistencia fuego exterior</td><td>&gt; 2 horas</td></tr>
+            <tr><td>Temperatura de uso</td><td>−30 °C a +55 °C</td></tr>
+            <tr><td>Resistencia sísmica</td><td>Grado 8</td></tr>
+            <tr><td>Resistencia viento</td><td>Clase 12 — hasta 120 km/h</td></tr>
+            <tr><td>Carga techo</td><td>≥ 0.5 kN/m²</td></tr>
+          </table>
+
+          <span class="spec-group-title">⚡ Instalación eléctrica</span>
+          <table class="spec-table">
+            <tr><td>Tensión</td><td>220V / 50Hz (adaptable)</td></tr>
+            <tr><td>Potencia máxima</td><td>12 kW</td></tr>
+            <tr><td>Tablero</td><td>Breakers + diferencial + puesta a tierra</td></tr>
+            <tr><td>Circuitos</td><td>Iluminación / tomas / climatización / cocina</td></tr>
+            <tr><td>Iluminación</td><td>LED integrado en todas las áreas</td></tr>
+            <tr><td>Pre-inst. aire</td><td>Split tipo cassette (no incluido)</td></tr>
+            <tr><td>Cableado</td><td>Multinúcleo embutido — certificación CE</td></tr>
+          </table>
+
+          <span class="spec-group-title">🚿 Instalación sanitaria</span>
+          <table class="spec-table">
+            <tr><td>Baño</td><td>Inodoro + ducha + lavamanos + accesorios</td></tr>
+            <tr><td>Cocina</td><td>Mesada inox + bajo mesada + espacio para electrodomésticos</td></tr>
+            <tr><td>Cañerías</td><td>PPR — fría y caliente preinstaladas</td></tr>
+            <tr><td>Agua caliente</td><td>Salida para termotanque eléctrico o solar</td></tr>
+            <tr><td>Desagüe</td><td>PVC Ø110 mm — salida configurable</td></tr>
+          </table>
+
+          <span class="spec-group-title">🏗️ Instalación y transporte</span>
+          <table class="spec-table">
+            <tr><td>Tiempo expansión</td><td>30–60 minutos (sin grúa)</td></tr>
+            <tr><td>Personas necesarias</td><td>2–3 personas</td></tr>
+            <tr><td>Herramientas</td><td>Ninguna especial</td></tr>
+            <tr><td>Cimentación</td><td>Bases puntuales de hormigón o apoyos regulables</td></tr>
+            <tr><td>Transporte</td><td>Estándar ISO — camión plataforma</td></tr>
+            <tr><td>Reutilizaciones</td><td>+50 ciclos garantizados</td></tr>
+            <tr><td>Vida útil</td><td>+30 años</td></tr>
+          </table>
+        </div>
+
+        <div class="catalog-footer">
+          <a href="#contacto" class="catalog-cta alt">Consultar precio →</a>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════
+           MODELO 6 · OF-20/40 · Oficina/Módulo sobre Ruedas
+      ══════════════════════════════════════ -->
+      <div class="catalog-card">
+        <div class="catalog-img-wrap">
+          <img src="https://shopcdnpro.grainajz.com/category/443492/3454/cf25e33c112c1b384c0951a35a726092/1.jpg"
+               alt="Contenedor Oficina Modular sobre Ruedas 20ft 40ft" loading="lazy"/>
+          <span class="catalog-tag ctag-blue">Industrial</span>
+        </div>
+        <div class="catalog-body">
+          <div class="catalog-model">Modelo OF-20/40</div>
+          <div class="catalog-name">Oficina / Módulo Industrial sobre Ruedas</div>
+          <div class="catalog-desc">Contenedor prefabricado desmontable flat-pack sobre ruedas. Máxima versatilidad para sitios remotos. Configurable como oficina, vestuario, comedor, sanitarios o vivienda temporal.</div>
+          <div class="catalog-use-row">
+            <span class="use-chip">🏗️ Obra civil</span>
+            <span class="use-chip">⛽ Petróleo / gas</span>
+            <span class="use-chip">⛏️ Minería</span>
+            <span class="use-chip">🚜 Agro / finca</span>
+          </div>
+          <div class="catalog-specs">
+            <span class="cspec">20FT y 40FT</span>
+            <span class="cspec">Sobre ruedas</span>
+            <span class="cspec">Flat-pack</span>
+            <span class="cspec">Reubicable</span>
+          </div>
+        </div>
+
+
+        <button class="card-gallery-toggle" onclick="toggleCardGallery(this)">
+          📷 Ver galería de fotos <span class="gal-arrow">▾</span>
+        </button>
+        <div class="card-gallery">
+          <div class="card-gallery-grid">
+          <div class="card-gallery-item">
+            <img src="https://shopcdnpro.grainajz.com/category/443492/3454/cf25e33c112c1b384c0951a35a726092/1.jpg" alt="Oficina modular · exterior" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1v4CbXoHqK1RjSZFEq6AGMXXaZ.jpg" alt="Interior oficina" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1w1ifXmzqK1RjSZFpq6ykSXXa1.jpg" alt="Módulo sobre ruedas" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1xHCXXlfH8KJjy1Xbq6zLdXXa0.jpg" alt="Módulo industrial 40FT" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1y1ifXmzqK1RjSZFpq6ykSXXa2.jpg" alt="Vestuario / comedor" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1z4CbXoHqK1RjSZFEq6AGMXXa0.jpg" alt="Módulo flat-pack · transporte" loading="lazy" />
+          </div>
+          </div>
+        </div>
+        <button class="spec-toggle" onclick="toggleSpecs(this)">
+          Ver ficha técnica completa <span class="arrow">▾</span>
+        </button>
+        <div class="spec-panel">
+          <span class="spec-group-title">📐 Dimensiones</span>
+          <table class="spec-table">
+            <tr><td>Largo (20FT)</td><td>6.06 m</td></tr>
+            <tr><td>Largo (40FT)</td><td>12.19 m</td></tr>
+            <tr><td>Ancho exterior</td><td>2.44 m</td></tr>
+            <tr><td>Alto exterior</td><td>2.80 m (con ruedas o patines)</td></tr>
+            <tr><td>Altura interior</td><td>2.50 m</td></tr>
+            <tr><td>Superficie interior (20FT)</td><td>~13.5 m²</td></tr>
+            <tr><td>Superficie interior (40FT)</td><td>~28 m²</td></tr>
+            <tr><td>Peso (20FT)</td><td>~2.500 kg</td></tr>
+            <tr><td>Peso (40FT)</td><td>~4.800 kg</td></tr>
+          </table>
+
+          <span class="spec-group-title">🔩 Estructura y materiales</span>
+          <table class="spec-table">
+            <tr><td>Estructura</td><td>Acero Q235 galvanizado — marcos desmontables</td></tr>
+            <tr><td>Paneles de pared</td><td>Sandwich EPS 50 mm — chapa galvanizada ext. + int.</td></tr>
+            <tr><td>Techo</td><td>Panel sandwich 75 mm — cubierta metálica con pendiente</td></tr>
+            <tr><td>Piso</td><td>Tablero fenólico 18 mm + vinílico industrial antideslizante</td></tr>
+            <tr><td>Sistema de ruedas</td><td>Ruedas metálicas industriales con traba o patines fijos</td></tr>
+            <tr><td>Uniones</td><td>Bulonería estándar M12/M16 — sin soldadura en obra</td></tr>
+            <tr><td>Puerta</td><td>Acero con burlete de sellado, ancho 900 mm mínimo</td></tr>
+            <tr><td>Ventanas</td><td>Aluminio con vidrio simple o DVH (a elección)</td></tr>
+          </table>
+
+          <span class="spec-group-title">🌡️ Aislación y confort</span>
+          <table class="spec-table">
+            <tr><td>Aislación térmica</td><td>EPS 50 mm pared / 75 mm techo</td></tr>
+            <tr><td>Resistencia fuego</td><td>Clasificación B2 (autoextinguible)</td></tr>
+            <tr><td>Aislación acústica</td><td>≥ 28 dB</td></tr>
+            <tr><td>Temperatura de trabajo</td><td>−20 °C a +50 °C</td></tr>
+            <tr><td>Resistencia viento</td><td>Hasta 100 km/h</td></tr>
+            <tr><td>Resistencia sísmica</td><td>Grado 7</td></tr>
+          </table>
+
+          <span class="spec-group-title">⚡ Instalación eléctrica</span>
+          <table class="spec-table">
+            <tr><td>Tensión</td><td>220V / 50Hz</td></tr>
+            <tr><td>Tablero eléctrico</td><td>Caja con breakers 16A–32A + diferencial</td></tr>
+            <tr><td>Circuitos</td><td>Iluminación + tomas corriente + climatización</td></tr>
+            <tr><td>Tomas de corriente</td><td>4–8 puntos distribuidos (Schuko / IRAM)</td></tr>
+            <tr><td>Iluminación</td><td>Tubos LED superficie o embutidos</td></tr>
+            <tr><td>Climatización</td><td>Pre-instalación para split de pared</td></tr>
+            <tr><td>Entrada general</td><td>Caja estanca IP65 en exterior</td></tr>
+          </table>
+
+          <span class="spec-group-title">🚿 Instalación sanitaria (opcional)</span>
+          <table class="spec-table">
+            <tr><td>Baño completo</td><td>Disponible como opción — inodoro + ducha + lavamanos</td></tr>
+            <tr><td>Cañerías</td><td>PPR preinstaladas — conexión en destino</td></tr>
+            <tr><td>Desagüe</td><td>PVC Ø110 mm — salida lateral o inferior</td></tr>
+            <tr><td>Cocina / kitchenette</td><td>Disponible como opción con bacha + mesada</td></tr>
+          </table>
+
+          <span class="spec-group-title">🏗️ Instalación y transporte</span>
+          <table class="spec-table">
+            <tr><td>Montaje en destino</td><td>4–8 horas (2–3 personas)</td></tr>
+            <tr><td>Herramientas</td><td>Llave de torque + nivel — sin soldadura</td></tr>
+            <tr><td>Movilidad en sitio</td><td>Ruedas industriales — reubicable con autoelevador</td></tr>
+            <tr><td>Transporte largo</td><td>Flat-pack en contenedor — hasta 4 módulos por contenedor</td></tr>
+            <tr><td>Reutilizaciones</td><td>Ilimitadas — desmontable y remontable</td></tr>
+            <tr><td>Vida útil</td><td>+20 años con mantenimiento básico</td></tr>
+          </table>
+        </div>
+
+        <div class="catalog-footer">
+          <a href="#contacto" class="catalog-cta">Consultar precio →</a>
+        </div>
+      </div>
+
+    </div><!-- /catalog-grid -->
+
+    <p style="text-align:center; font-size:13px; color:#999; margin-top:2rem;">
+      ¿No encontrás el modelo que buscás? <a href="#contacto" style="color:#e8640a; text-decoration:none; font-weight:500;">Consultanos — tenemos acceso a toda la línea de producción →</a>
+    </p>
+
+  </div><!-- /catalog-section -->
 </section>
+
+
+<!-- LIGHTBOX -->
+<div class="lightbox-overlay" id="lightbox">
+  <button class="lightbox-close" id="lb-close">✕</button>
+  <button class="lightbox-nav lightbox-prev" id="lb-prev">‹</button>
+  <img class="lightbox-img" id="lb-img" src="" alt="" />
+  <button class="lightbox-nav lightbox-next" id="lb-next">›</button>
+  <div class="lightbox-caption" id="lb-caption"></div>
+</div>
 
 <!-- MÉTRICAS TÉCNICAS -->
 <section style="background:#f8f8f6; padding: 3rem 2rem;">
@@ -291,32 +1346,129 @@
   <div class="contact-grid">
     <div class="contact-info">
       <div class="contact-item">
-        <!-- WhatsApp icon -->
         <svg width="22" height="22" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.088.543 4.05 1.49 5.762L0 24l6.433-1.467A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.95 0-3.77-.524-5.33-1.436l-.381-.226-3.946.9.946-3.847-.247-.395A9.8 9.8 0 012.182 12C2.182 6.579 6.579 2.182 12 2.182S21.818 6.579 21.818 12 17.421 21.818 12 21.818z"/></svg>
         <span>Hexa Home Viviendas Modulares<br><small style="color:#7ab3d4;">Cuenta de empresa de WhatsApp</small></span>
       </div>
       <div class="contact-item">
-        <!-- Location icon -->
         <svg width="22" height="22" viewBox="0 0 24 24" fill="#7ab3d4"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
         <span>Mendoza, Argentina<br><small style="color:#7ab3d4;">Atención a todo el país</small></span>
       </div>
       <div class="contact-item">
-        <!-- Email icon -->
         <svg width="22" height="22" viewBox="0 0 24 24" fill="#7ab3d4"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-        <span>info.hexahome@gmail.com<br><small style="color:#7ab3d4;">Respondemos en menos de 24hs</small></span>
+        <span><a href="/cdn-cgi/l/email-protection#630a0d050c4d0b061b020b0c0e0623040e020a0f4d000c0e" style="color:#7ab3d4;"><span class="__cf_email__" data-cfemail="dbb2b5bdb4f5b3bea3bab3b4b6be9bbcb6bab2b7f5b8b4b6">[email&#160;protected]</span></a><br><small style="color:#7ab3d4;">Respondemos en menos de 24hs</small></span>
       </div>
-      <!-- REEMPLAZÁ este link con tu número real de WhatsApp -->
       <a href="https://wa.me/5492634612221?text=Hola!%20Me%20interesa%20conocer%20m%C3%A1s%20sobre%20los%20m%C3%B3dulos%20habitacionales." class="wa-btn" target="_blank">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.088.543 4.05 1.49 5.762L0 24l6.433-1.467A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.95 0-3.77-.524-5.33-1.436l-.381-.226-3.946.9.946-3.847-.247-.395A9.8 9.8 0 012.182 12C2.182 6.579 6.579 2.182 12 2.182S21.818 6.579 21.818 12 17.421 21.818 12 21.818z"/></svg>
         Escribinos por WhatsApp
       </a>
     </div>
 
+    <!-- QR CODE -->
+    <div class="qr-box">
+      <img src="data:image/png;base64,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" alt="QR WhatsApp Hexa Home" style="width:150px;height:auto;display:block;" />
+      <p style="color:#555; font-size:12px; margin-top:10px; line-height:1.4;">Escaneá para<br>abrir WhatsApp</p>
+    </div>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
-  <p>© 2026 Hexa Home Viviendas Modulares · Mendoza, Argentina · Módulos habitacionales importados desde China</p>
-  <p style="margin-top:6px;">info.hexahome@gmail.com · Diseño, calidad y soluciones habitacionales modernas para Argentina</p>
+  <p>© 2025 Hexa Home Viviendas Modulares · Mendoza, Argentina · Módulos habitacionales importados desde China</p>
+  <p style="margin-top:6px; color:#2d4a6e; font-size:12px;"><a href="/cdn-cgi/l/email-protection#b0d9ded6df9ed8d5c8d1d8dfddd5f0d7ddd1d9dc9ed3dfdd" style="color:#4a6a8a; text-decoration:none;"><span class="__cf_email__" data-cfemail="4821262e2766202d30292027252d082f25292124662b2725">[email&#160;protected]</span></a></p>
 </footer>
 
-</body>
-</html>
+<!-- ACORDEÓN FICHAS TÉCNICAS -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+
+  function toggleCardGallery(btn) {
+    const panel = btn.nextElementSibling;
+    const isOpen = panel.classList.contains('open');
+    btn.classList.toggle('open', !isOpen);
+    panel.classList.toggle('open', !isOpen);
+  }
+
+  // Card gallery lightbox (reuses existing lightbox)
+  document.addEventListener('click', function(e) {
+    const item = e.target.closest('.card-gallery-item');
+    if (!item) return;
+    const grid = item.closest('.card-gallery-grid');
+    const items = Array.from(grid.querySelectorAll('.card-gallery-item img'));
+    currentGallery = items.map(img => ({ src: img.src, alt: img.alt, caption: img.alt }));
+    currentIndex = Array.from(grid.querySelectorAll('.card-gallery-item')).indexOf(item);
+    if (currentGallery.length === 0) return;
+    showLightboxSlide();
+    document.getElementById('lightbox').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  });
+
+  function toggleSpecs(btn) {
+    const panel = btn.nextElementSibling;
+    const isOpen = panel.classList.contains('open');
+    // Cerrar todos los paneles del mismo card
+    btn.classList.toggle('open', !isOpen);
+    panel.classList.toggle('open', !isOpen);
+  }
+</script>
+
+<!-- LIGHTBOX SCRIPT -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Datos de las galerías (se llenan automáticamente desde el HTML)
+  let currentGallery = [];
+  let currentIndex = 0;
+
+  function buildGalleryData(galleryId) {
+    const items = document.querySelectorAll(`#${galleryId} .gallery-item`);
+    const data = [];
+    items.forEach(item => {
+      const img = item.querySelector('img');
+      const caption = item.querySelector('.caption');
+      if (img) {
+        data.push({ src: img.src, alt: img.alt, caption: caption ? caption.textContent.trim() : '' });
+      }
+    });
+    return data;
+  }
+
+  function openLightbox(galleryId, index) {
+    const items = document.querySelectorAll(`#gallery-${galleryId} .gallery-item`);
+    currentGallery = [];
+    items.forEach(item => {
+      const img = item.querySelector('img');
+      const cap = item.querySelector('.caption');
+      if (img) {
+        currentGallery.push({ src: img.src, alt: img.alt, caption: cap ? cap.textContent.trim() : '' });
+      }
+    });
+    if (currentGallery.length === 0) return;
+    currentIndex = Math.min(index, currentGallery.length - 1);
+    showLightboxSlide();
+    document.getElementById('lightbox').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function showLightboxSlide() {
+    const slide = currentGallery[currentIndex];
+    document.getElementById('lb-img').src = slide.src;
+    document.getElementById('lb-img').alt = slide.alt;
+    document.getElementById('lb-caption').textContent = `${slide.caption}  (${currentIndex + 1} / ${currentGallery.length})`;
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // Eventos click en ítems de galería
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const galleryId = item.dataset.gallery;
+      const index = parseInt(item.dataset.index) || 0;
+      openLightbox(galleryId, index);
+    });
+  });
+
+  document.getElementById('lb-close').addEventListener('click', closeLightbox);
+  document.getElementById('lb-prev').addEventListener('click', () => {
+    if (currentGallery.length === 0) return;
+    currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+    showLightboxSlide(
