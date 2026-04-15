@@ -446,6 +446,367 @@
       .gallery-item.wide { grid-column: span 2; }
       .lightbox-nav { display: none; }
     }
+
+    /* ==============================
+       NUEVO: FORMULARIO DE CONTACTO
+       — Campo email agregado
+    ============================== */
+    .contact-form {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 14px;
+      padding: 1.75rem;
+      max-width: 440px;
+      width: 100%;
+    }
+    .contact-form h3 {
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: #a8c8e0;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 8px;
+      color: #fff;
+      font-size: 14px;
+      font-family: inherit;
+      padding: 10px 13px;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(255,255,255,0.35);
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: #e8640a;
+      background: rgba(255,255,255,0.12);
+    }
+    /* Validation */
+    .form-group input:invalid:not(:placeholder-shown) {
+      border-color: #e05252;
+    }
+    .form-group input:valid:not(:placeholder-shown) {
+      border-color: #3ab56a;
+    }
+    .form-group select {
+      color: rgba(255,255,255,0.7);
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%237ab3d4' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 32px;
+      cursor: pointer;
+    }
+    .form-group select option { background: #1a2e4a; color: #fff; }
+    .form-group textarea { resize: vertical; min-height: 90px; }
+    .form-submit {
+      width: 100%;
+      background: #e8640a;
+      color: #fff;
+      border: none;
+      padding: 13px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: opacity 0.2s, transform 0.15s;
+      margin-top: 0.5rem;
+    }
+    .form-submit:hover { opacity: 0.9; transform: translateY(-1px); }
+    .form-submit:active { transform: translateY(0); }
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      color: #7ee8a2;
+      font-size: 15px;
+    }
+    .form-success .fs-icon { font-size: 36px; display: block; margin-bottom: 0.5rem; }
+
+    /* ==============================
+       NUEVO: CATÁLOGO VISUAL — 4 TARJETAS CON MODAL
+       Sección separada del catálogo detallado existente
+    ============================== */
+    .visual-catalog-section {
+      background: #f8f8f6;
+      padding: 3.5rem 2rem;
+    }
+    .visual-catalog-inner {
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+    .vc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 1.25rem;
+    }
+    /* Tarjeta clickeable del catálogo visual */
+    .vc-card {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 14px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: box-shadow 0.25s, transform 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .vc-card:hover {
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+      transform: translateY(-4px);
+    }
+    .vc-img-wrap {
+      position: relative;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      background: #e8e8e4;
+    }
+    .vc-img-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      transition: transform 0.4s ease;
+    }
+    .vc-card:hover .vc-img-wrap img { transform: scale(1.06); }
+    .vc-badge {
+      position: absolute; top: 10px; left: 10px;
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.8px; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 20px;
+      backdrop-filter: blur(6px);
+    }
+    .vc-badge-orange { background: rgba(232,100,10,0.92); color: #fff; }
+    .vc-badge-navy   { background: rgba(26,46,74,0.90);  color: #fff; }
+    .vc-badge-green  { background: rgba(15,110,86,0.90); color: #fff; }
+    .vc-badge-gray   { background: rgba(60,60,60,0.85);  color: #fff; }
+    .vc-overlay-icon {
+      position: absolute; bottom: 10px; right: 10px;
+      background: rgba(0,0,0,0.45); color: #fff;
+      border-radius: 50%; width: 36px; height: 36px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+      opacity: 0; transition: opacity 0.2s;
+    }
+    .vc-card:hover .vc-overlay-icon { opacity: 1; }
+    .vc-body { padding: 1rem 1.1rem 1.1rem; flex: 1; }
+    .vc-model { font-size: 10px; font-weight: 700; color: #e8640a; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 3px; }
+    .vc-name  { font-size: 15px; font-weight: 600; color: #1a2e4a; margin-bottom: 6px; line-height: 1.3; }
+    .vc-desc  { font-size: 12px; color: #777; line-height: 1.5; }
+    .vc-cta-hint {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 11px; font-weight: 600; color: #e8640a;
+      margin-top: 10px; letter-spacing: 0.3px;
+    }
+
+    /* ==============================
+       NUEVO: MODAL DEL CATÁLOGO
+       Carrusel + Ficha técnica
+    ============================== */
+    .vc-modal-overlay {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(10,18,30,0.88);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      backdrop-filter: blur(4px);
+    }
+    .vc-modal-overlay.active { display: flex; }
+
+    .vc-modal {
+      background: #fff;
+      border-radius: 18px;
+      overflow: hidden;
+      width: 100%;
+      max-width: 900px;
+      max-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.4);
+      animation: modalIn 0.28s ease;
+    }
+    @keyframes modalIn {
+      from { opacity: 0; transform: scale(0.96) translateY(12px); }
+      to   { opacity: 1; transform: scale(1)    translateY(0); }
+    }
+
+    .vc-modal-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid #f0f0ee;
+      flex-shrink: 0;
+    }
+    .vc-modal-title {
+      font-size: 16px; font-weight: 700; color: #1a2e4a;
+    }
+    .vc-modal-subtitle {
+      font-size: 11px; font-weight: 600; color: #e8640a;
+      letter-spacing: 1px; text-transform: uppercase;
+    }
+    .vc-modal-close {
+      background: #f4f4f2; border: none; border-radius: 50%;
+      width: 34px; height: 34px; cursor: pointer; font-size: 18px;
+      display: flex; align-items: center; justify-content: center;
+      color: #555; transition: background 0.2s;
+      flex-shrink: 0;
+    }
+    .vc-modal-close:hover { background: #e8e8e4; color: #1a2e4a; }
+
+    .vc-modal-body {
+      display: flex;
+      overflow: hidden;
+      flex: 1;
+      min-height: 0;
+    }
+
+    /* Carrusel lado izquierdo */
+    .vc-carousel {
+      width: 52%;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      background: #111d2b;
+      position: relative;
+    }
+    .vc-carousel-main {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+      min-height: 260px;
+    }
+    .vc-carousel-main img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      transition: opacity 0.3s;
+    }
+    .vc-car-nav {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: rgba(0,0,0,0.5); color: #fff; border: none;
+      border-radius: 50%; width: 38px; height: 38px;
+      font-size: 18px; cursor: pointer; display: flex;
+      align-items: center; justify-content: center;
+      transition: background 0.2s; z-index: 2;
+    }
+    .vc-car-nav:hover { background: rgba(232,100,10,0.8); }
+    .vc-car-prev { left: 10px; }
+    .vc-car-next { right: 10px; }
+    .vc-car-counter {
+      position: absolute; bottom: 10px; right: 12px;
+      background: rgba(0,0,0,0.55); color: rgba(255,255,255,0.85);
+      font-size: 11px; padding: 3px 9px; border-radius: 20px;
+    }
+    .vc-thumbnails {
+      display: flex; gap: 4px;
+      padding: 6px 6px;
+      background: #0d1621;
+      overflow-x: auto;
+      flex-shrink: 0;
+    }
+    .vc-thumb {
+      width: 52px; height: 40px; border-radius: 5px;
+      overflow: hidden; cursor: pointer; flex-shrink: 0;
+      border: 2px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .vc-thumb.active { border-color: #e8640a; }
+    .vc-thumb img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+    }
+
+    /* Specs lado derecho */
+    .vc-specs-pane {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.25rem 1.4rem;
+    }
+    .vc-specs-pane::-webkit-scrollbar { width: 4px; }
+    .vc-specs-pane::-webkit-scrollbar-thumb { background: #e0e0e0; border-radius: 2px; }
+
+    .vc-specs-intro {
+      font-size: 13px; color: #555; line-height: 1.6;
+      margin-bottom: 1.2rem; padding-bottom: 1rem;
+      border-bottom: 1px solid #f0f0ee;
+    }
+    .vc-uses { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 1rem; }
+    .vc-use-chip {
+      font-size: 11px; padding: 3px 9px;
+      border-radius: 4px; border: 1px solid #d5d5d0;
+      color: #666; background: #fafaf8;
+    }
+
+    .vc-spec-group { margin-bottom: 1rem; }
+    .vc-spec-group-title {
+      font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: #e8640a;
+      padding: 0 0 6px; display: block;
+      border-bottom: 1px solid #f0f0ee; margin-bottom: 6px;
+    }
+    .vc-spec-row {
+      display: flex; justify-content: space-between; align-items: baseline;
+      padding: 5px 0; border-bottom: 1px solid #f8f8f6;
+      font-size: 12px;
+    }
+    .vc-spec-row:last-child { border-bottom: none; }
+    .vc-spec-key { color: #666; flex: 0 0 48%; }
+    .vc-spec-val { color: #1a2e4a; font-weight: 600; text-align: right; flex: 0 0 50%; }
+
+    .vc-modal-footer {
+      border-top: 1px solid #f0f0ee;
+      padding: 0.9rem 1.4rem;
+      display: flex; gap: 10px;
+      flex-shrink: 0;
+    }
+    .vc-modal-cta {
+      flex: 1; text-align: center;
+      background: #e8640a; color: #fff;
+      padding: 11px; border-radius: 8px;
+      font-size: 13px; font-weight: 600;
+      text-decoration: none; border: none; cursor: pointer;
+      font-family: inherit; transition: opacity 0.2s;
+    }
+    .vc-modal-cta:hover { opacity: 0.9; }
+    .vc-modal-cta.secondary {
+      background: #f4f4f2; color: #1a2e4a;
+      border: 1px solid #e0e0e0;
+    }
+    .vc-modal-cta.secondary:hover { background: #eaeaea; }
+
+    /* Responsive modal */
+    @media (max-width: 700px) {
+      .vc-modal-body { flex-direction: column; }
+      .vc-carousel { width: 100%; min-height: 220px; }
+      .vc-carousel-main { min-height: 200px; }
+      .vc-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 420px) {
+      .vc-grid { grid-template-columns: 1fr; }
+      .contact-form { padding: 1.25rem; }
+    }
   </style>
 </head>
 <body>
@@ -518,7 +879,147 @@
 
 
 <!-- ==============================
-     CATÁLOGO COMPLETO DE MODELOS
+     NUEVO: CATÁLOGO VISUAL — 4 MODELOS
+     Tarjetas clicables que abren modal con
+     carrusel de imágenes + ficha técnica
+============================== -->
+<section class="visual-catalog-section" id="catalogo-visual">
+  <div class="visual-catalog-inner">
+    <div class="section-title">Nuestros modelos</div>
+    <div class="section-sub">Hacé clic en cualquier modelo para ver galería y ficha técnica completa</div>
+    <div class="divider"></div>
+
+    <div class="vc-grid">
+
+      <!-- TARJETA 1 · EH-01 Casa Expandible Premium -->
+      <div class="vc-card" onclick="openVCModal('eh01')">
+        <div class="vc-img-wrap">
+          <img src="https://sc04.alicdn.com/kf/H54436b00a054400aa47c5396116624909.jpg" alt="Casa Expandible Premium EH-01" loading="lazy"/>
+          <span class="vc-badge vc-badge-orange">Más popular</span>
+          <div class="vc-overlay-icon">👁</div>
+        </div>
+        <div class="vc-body">
+          <div class="vc-model">Modelo EH-01</div>
+          <div class="vc-name">Casa Expandible Premium</div>
+          <div class="vc-desc">Vivienda plegable que se transporta como contenedor y se expande en pocas horas. Sin obra civil ni grúa.</div>
+          <div class="vc-cta-hint">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            Ver galería y ficha técnica
+          </div>
+        </div>
+      </div>
+
+      <!-- TARJETA 2 · 4D-EXP-20FT Casa Expandible 4D 20FT -->
+      <div class="vc-card" onclick="openVCModal('4d20')">
+        <div class="vc-img-wrap">
+          <img src="https://sc04.alicdn.com/kf/HTB1_expandable_20ft_container_home.jpg" alt="Casa Expandible 4D 20FT" loading="lazy"
+               onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80'" />
+          <span class="vc-badge vc-badge-navy">Nueva Generación</span>
+          <div class="vc-overlay-icon">👁</div>
+        </div>
+        <div class="vc-body">
+          <div class="vc-model">Modelo 4D-EXP · 20FT</div>
+          <div class="vc-name">Casa Expandible 4D</div>
+          <div class="vc-desc">Se expande en cuatro direcciones simultáneas, triplicando la superficie habitable en 30–60 minutos.</div>
+          <div class="vc-cta-hint">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            Ver galería y ficha técnica
+          </div>
+        </div>
+      </div>
+
+      <!-- TARJETA 3 · 4D-EXP-40FT Casa Expandible 4D 40FT -->
+      <div class="vc-card" onclick="openVCModal('4d40')">
+        <div class="vc-img-wrap">
+          <img src="https://sc04.alicdn.com/kf/HTB1b_0pXlDH8KJjy1Xcq6ApdXXaZ.jpg" alt="Casa Expandible 4D 40FT" loading="lazy"
+               onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80'" />
+          <span class="vc-badge vc-badge-orange">Estrella 40FT</span>
+          <div class="vc-overlay-icon">👁</div>
+        </div>
+        <div class="vc-body">
+          <div class="vc-model">Modelo 4D-EXP · 40FT</div>
+          <div class="vc-name">Casa Expandible 4D · 40FT</div>
+          <div class="vc-desc">Hasta 80 m² expandidos. Disponible en distribuciones de 2 o 3 dormitorios. Anti-sísmica nivel 8.</div>
+          <div class="vc-cta-hint">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            Ver galería y ficha técnica
+          </div>
+        </div>
+      </div>
+
+      <!-- TARJETA 4 · OF-20/40 Módulo Industrial -->
+      <div class="vc-card" onclick="openVCModal('of2040')">
+        <div class="vc-img-wrap">
+          <img src="https://shopcdnpro.grainajz.com/category/443492/3454/5f199ddbd38233628f390a56bc210a64/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_2025-08-25_161509_736.jpg" alt="Módulo Industrial OF-20/40" loading="lazy"
+               onerror="this.src='https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80'" />
+          <span class="vc-badge vc-badge-gray">Industrial</span>
+          <div class="vc-overlay-icon">👁</div>
+        </div>
+        <div class="vc-body">
+          <div class="vc-model">Modelo OF-20/40</div>
+          <div class="vc-name">Módulo Industrial Apilable</div>
+          <div class="vc-desc">Flat-pack desmontable para sitios remotos. Oficinas, vestuarios, comedores o vivienda temporal. Apilable hasta 3 niveles.</div>
+          <div class="vc-cta-hint">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            Ver galería y ficha técnica
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /.vc-grid -->
+  </div><!-- /.visual-catalog-inner -->
+</section>
+
+<!-- ==============================
+     MODAL DEL CATÁLOGO VISUAL
+     (carrusel + ficha técnica)
+============================== -->
+<div class="vc-modal-overlay" id="vcModalOverlay" onclick="closeVCModal(event)">
+  <div class="vc-modal" id="vcModal">
+
+    <!-- Cabecera del modal -->
+    <div class="vc-modal-header">
+      <div>
+        <div class="vc-modal-subtitle" id="vcModalSubtitle">Modelo EH-01</div>
+        <div class="vc-modal-title" id="vcModalTitle">Casa Expandible Premium</div>
+      </div>
+      <button class="vc-modal-close" onclick="closeVCModal()" title="Cerrar">✕</button>
+    </div>
+
+    <!-- Cuerpo: carrusel izq + specs der -->
+    <div class="vc-modal-body">
+
+      <!-- Carrusel de imágenes -->
+      <div class="vc-carousel">
+        <div class="vc-carousel-main">
+          <img id="vcCarImg" src="" alt="" />
+          <button class="vc-car-nav vc-car-prev" onclick="vcCarMove(-1)">&#8249;</button>
+          <button class="vc-car-nav vc-car-next" onclick="vcCarMove(1)">&#8250;</button>
+          <span class="vc-car-counter" id="vcCarCounter">1 / 1</span>
+        </div>
+        <div class="vc-thumbnails" id="vcThumbs"></div>
+      </div>
+
+      <!-- Ficha técnica -->
+      <div class="vc-specs-pane" id="vcSpecsPane"></div>
+
+    </div><!-- /.vc-modal-body -->
+
+    <!-- Footer del modal -->
+    <div class="vc-modal-footer">
+      <a href="https://wa.me/5492634612221?text=Hola!%20Me%20interesa%20conocer%20m%C3%A1s%20sobre%20los%20m%C3%B3dulos%20habitacionales." target="_blank" class="vc-modal-cta">
+        Consultar por WhatsApp
+      </a>
+      <a href="#contacto" class="vc-modal-cta secondary" onclick="closeVCModal()">
+        Enviar consulta →
+      </a>
+    </div>
+
+  </div><!-- /.vc-modal -->
+</div><!-- /.vc-modal-overlay -->
+
+//esta liena no se ejecuta/<!-- ==============================
+/*     CATÁLOGO COMPLETO DE MODELOS
 ============================== -->
 <section id="catalogo" style="background:#fff; padding: 0 0 1rem;">
   <div class="catalog-section">
@@ -1270,7 +1771,7 @@
 
     </div><!-- /catalog-grid -->
 
-    <p style="text-align:center; font-size:13px; color:#999; margin-top:2rem;">
+    <p style="text-align:center; font-size:13px; color:#999; margin-top:2rem;">/
       ¿No encontrás el modelo que buscás? <a href="#contacto" style="color:#e8640a; text-decoration:none; font-weight:500;">Consultanos — tenemos acceso a toda la línea de producción →</a>
     </p>
 
@@ -1341,9 +1842,58 @@
 <!-- CONTACTO -->
 <section class="cta-section" id="contacto">
   <h2>¿Te interesa un módulo habitacional?</h2>
-  <p>Escribinos por WhatsApp para recibir asesoramiento personalizado, catálogos completos y presupuesto sin cargo.</p>
+  <p>Completá el formulario o escribinos directamente. Respondemos en menos de 24 hs con presupuesto sin cargo.</p>
 
   <div class="contact-grid">
+
+    <!-- NUEVO: Formulario de contacto con campo email -->
+    <div class="contact-form">
+      <h3>✉️ Envianos tu consulta</h3>
+      <div id="contactFormWrap">
+        <!-- Campo: Nombre -->
+        <div class="form-group">
+          <label for="cf-nombre">Nombre y apellido *</label>
+          <input type="text" id="cf-nombre" name="nombre" placeholder="Ej: Juan Pérez" required minlength="2" />
+        </div>
+        <!-- Campo: Email (NUEVO — obligatorio, validado) -->
+        <div class="form-group">
+          <label for="cf-email">Correo electrónico *</label>
+          <input type="email" id="cf-email" name="email" placeholder="tucorreo@ejemplo.com" required />
+        </div>
+        <!-- Campo: Teléfono -->
+        <div class="form-group">
+          <label for="cf-telefono">Teléfono / WhatsApp</label>
+          <input type="tel" id="cf-telefono" name="telefono" placeholder="Ej: +54 9 261 000-0000" />
+        </div>
+        <!-- Campo: Modelo de interés -->
+        <div class="form-group">
+          <label for="cf-modelo">Modelo de interés</label>
+          <select id="cf-modelo" name="modelo">
+            <option value="">— Seleccioná un modelo —</option>
+            <option value="EH-01">EH-01 · Casa Expandible Premium</option>
+            <option value="4D-20FT">4D-EXP 20FT · Casa Expandible 4D</option>
+            <option value="4D-40FT">4D-EXP 40FT · Casa Expandible 4D Grande</option>
+            <option value="OF-2040">OF-20/40 · Módulo Industrial Apilable</option>
+            <option value="otro">Otro / No sé aún</option>
+          </select>
+        </div>
+        <!-- Campo: Mensaje -->
+        <div class="form-group">
+          <label for="cf-mensaje">Mensaje *</label>
+          <textarea id="cf-mensaje" name="mensaje" placeholder="Contanos qué necesitás: uso, terreno, cantidad de personas, plazo estimado..." required minlength="10"></textarea>
+        </div>
+        <button type="button" class="form-submit" onclick="enviarFormulario()">
+          Enviar consulta →
+        </button>
+      </div>
+      <!-- Mensaje de éxito (oculto hasta envío) -->
+      <div class="form-success" id="formSuccess">
+        <span class="fs-icon">✅</span>
+        <strong>¡Consulta enviada!</strong><br>
+        Te respondemos en menos de 24 hs por email o WhatsApp.
+      </div>
+    </div>
+
     <div class="contact-info">
       <div class="contact-item">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.088.543 4.05 1.49 5.762L0 24l6.433-1.467A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.95 0-3.77-.524-5.33-1.436l-.381-.226-3.946.9.946-3.847-.247-.395A9.8 9.8 0 012.182 12C2.182 6.579 6.579 2.182 12 2.182S21.818 6.579 21.818 12 17.421 21.818 12 21.818z"/></svg>
@@ -1355,7 +1905,7 @@
       </div>
       <div class="contact-item">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="#7ab3d4"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-        <span><a href="/cdn-cgi/l/email-protection#630a0d050c4d0b061b020b0c0e0623040e020a0f4d000c0e" style="color:#7ab3d4;"><span class="__cf_email__" data-cfemail="dbb2b5bdb4f5b3bea3bab3b4b6be9bbcb6bab2b7f5b8b4b6">info.hexahome@gmail.com </span></a><br><small style="color:#7ab3d4;">Respondemos en menos de 24hs</small></span>
+        <span><a href="/cdn-cgi/l/email-protection#630a0d050c4d0b061b020b0c0e0623040e020a0f4d000c0e" style="color:#7ab3d4;"><span class="__cf_email__" data-cfemail="dbb2b5bdb4f5b3bea3bab3b4b6be9bbcb6bab2b7f5b8b4b6">[email&#160;protected]</span></a><br><small style="color:#7ab3d4;">Respondemos en menos de 24hs</small></span>
       </div>
       <a href="https://wa.me/5492634612221?text=Hola!%20Me%20interesa%20conocer%20m%C3%A1s%20sobre%20los%20m%C3%B3dulos%20habitacionales." class="wa-btn" target="_blank">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.088.543 4.05 1.49 5.762L0 24l6.433-1.467A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.95 0-3.77-.524-5.33-1.436l-.381-.226-3.946.9.946-3.847-.247-.395A9.8 9.8 0 012.182 12C2.182 6.579 6.579 2.182 12 2.182S21.818 6.579 21.818 12 17.421 21.818 12 21.818z"/></svg>
@@ -1471,4 +2021,450 @@
   document.getElementById('lb-prev').addEventListener('click', () => {
     if (currentGallery.length === 0) return;
     currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
-    showLightboxSlide(
+    showLightboxSlide();
+  });
+  document.getElementById('lb-next').addEventListener('click', () => {
+    if (currentGallery.length === 0) return;
+    currentIndex = (currentIndex + 1) % currentGallery.length;
+    showLightboxSlide();
+  });
+  document.getElementById('lightbox').addEventListener('click', function(e) {
+    if (e.target === this) closeLightbox();
+  });
+  document.addEventListener('keydown', function(e) {
+    const lb = document.getElementById('lightbox');
+    if (!lb.classList.contains('active')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft' && currentGallery.length) {
+      currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+      showLightboxSlide();
+    }
+    if (e.key === 'ArrowRight' && currentGallery.length) {
+      currentIndex = (currentIndex + 1) % currentGallery.length;
+      showLightboxSlide();
+    }
+  });
+</script>
+
+<!-- ==============================
+     NUEVO: JAVASCRIPT DEL CATÁLOGO VISUAL
+     — Modal con carrusel + ficha técnica
+     — Formulario de contacto con email
+============================== -->
+<script>
+// ─────────────────────────────────────────
+// DATOS DE LOS 4 MODELOS DEL CATÁLOGO VISUAL
+// Para agregar/editar: modificar este objeto
+// ─────────────────────────────────────────
+const VC_DATA = {
+
+  'eh01': {
+    subtitle: 'Modelo EH-01 · Más popular',
+    title: 'Casa Expandible Premium',
+    intro: 'Vivienda prefabricada plegable que se transporta como contenedor estándar y se expande en el sitio. Lista para habitar en pocas horas, sin obra civil ni grúa. Diseño a medida del cliente.',
+    uses: ['🏠 Vivienda permanente', '🏢 Oficina', '⛏️ Campamentos', '🌿 Glamping'],
+    images: [
+      { src: 'https://sc04.alicdn.com/kf/H54436b00a054400aa47c5396116624909.jpg', alt: 'Casa Expandible Premium · exterior' },
+      { src: 'https://sc04.alicdn.com/kf/HTB1b_0pXlDH8KJjy1Xcq6ApdXXaZ.jpg',      alt: 'Interior · dormitorio' },
+      { src: 'https://sc04.alicdn.com/kf/HTB1y0CiXmzqK1RjSZFpq6ykSXXa3.jpg',     alt: 'Modelo 40FT exterior' },
+      { src: 'https://sc04.alicdn.com/kf/HTB1CkSpXoHqK1RjSZFgq6y7JXXam.jpg',     alt: 'Baño completo integrado' },
+    ],
+    specs: [
+      { group: '📐 Dimensiones', rows: [
+        ['Plegado 20FT',      '6.06 × 2.44 × 2.59 m'],
+        ['Expandido 20FT',    '6.06 × 6.32 × 2.59 m'],
+        ['Plegado 40FT',      '12.19 × 2.44 × 2.59 m'],
+        ['Expandido 40FT',    '12.19 × 6.32 × 2.59 m'],
+        ['Altura interior',   '2.40 m'],
+        ['Superficie 20FT',   '~38 m²'],
+        ['Superficie 40FT',   '~77 m²'],
+        ['Peso 20FT',         '4.500 kg'],
+        ['Peso 40FT',         '7.900 kg'],
+      ]},
+      { group: '🔩 Estructura', rows: [
+        ['Estructura',        'Acero Q235 galvanizado en caliente'],
+        ['Paneles de pared',  'Sandwich EPS / poliuretano 75 mm'],
+        ['Techo',             'Sandwich EPS 100 mm cubierta metálica'],
+        ['Piso',              'Bambú 18 mm + PVC antideslizante'],
+        ['Ventanas',          'Aluminio DVH 5+6+5 mm'],
+        ['Anticorrosión',     'Galvanizado + pintura epóxi en polvo'],
+      ]},
+      { group: '🌡️ Confort', rows: [
+        ['Aislación térmica', '0.048 W/m·K'],
+        ['Aislación acústica','≥ 30 dB'],
+        ['Resistencia fuego', '> 2 horas exterior'],
+        ['Temperatura uso',   '−30 °C a +55 °C'],
+        ['Resistencia viento','Hasta 120 km/h'],
+        ['Resistencia sísmica','Grado 8 (Mercalli)'],
+      ]},
+      { group: '⚡ Eléctrico', rows: [
+        ['Tensión',           '220V / 50Hz'],
+        ['Potencia máxima',   '12 kW'],
+        ['Iluminación',       'LED incluida'],
+        ['Tablero',           'Disyuntores + diferencial'],
+      ]},
+      { group: '🏗️ Instalación', rows: [
+        ['Tiempo de montaje', '2–4 horas (2 personas)'],
+        ['Herramientas',      'Mínimas — sin soldadura'],
+        ['Transporte',        'Contenedor ISO 20FT / 40FT'],
+        ['Reutilizaciones',   '+50 ciclos'],
+        ['Vida útil',         '+30 años'],
+      ]},
+    ]
+  },
+
+  '4d20': {
+    subtitle: 'Modelo 4D-EXP · Nueva Generación · 20FT',
+    title: 'Casa Expandible 4D · 20 FT',
+    intro: 'Contenedor que se expande en cuatro direcciones simultáneas, triplicando la superficie habitable sin grúa. La solución más rápida del mercado para vivienda, ocio o trabajo remoto.',
+    uses: ['🏠 Vivienda', '🏢 Oficina', '⛏️ Minería / petróleo', '🌿 Glamping'],
+    images: [
+      { src: 'https://sc04.alicdn.com/kf/HTB1b_0pXlDH8KJjy1Xcq6ApdXXaZ.jpg',    alt: 'Casa 4D 20FT · exterior expandido' },
+      { src: 'https://sc04.alicdn.com/kf/HTB1CkSpXoHqK1RjSZFgq6y7JXXam.jpg',    alt: 'Interior · living' },
+      { src: 'https://sc04.alicdn.com/kf/HTB1y0CiXmzqK1RjSZFpq6ykSXXa3.jpg',   alt: 'Cocina equipada' },
+      { src: 'https://sc04.alicdn.com/kf/H54436b00a054400aa47c5396116624909.jpg', alt: 'Proceso de expansión' },
+    ],
+    specs: [
+      { group: '📐 Dimensiones', rows: [
+        ['Tamaño cerrado',    '6.06 × 2.44 × 2.59 m'],
+        ['Tamaño expandido',  'hasta 11.5 × 7.2 × 2.90 m'],
+        ['Superficie plegada','~14.8 m²'],
+        ['Superficie expandida','~55–80 m² según modelo'],
+        ['Altura interior',   '2.60 m'],
+        ['Peso plegado',      '~5.500 kg'],
+        ['Capacidad',         '2 a 4 personas'],
+      ]},
+      { group: '🔩 Estructura', rows: [
+        ['Estructura',        'Acero Q345 alta resistencia galvanizado'],
+        ['Paneles',           'Sandwich aluminio + EPS 75 mm'],
+        ['Techo',             'Panel sandwich 100 mm impermeable'],
+        ['Piso',              'Acero + bambú 18 mm + vinílico'],
+        ['Mecanismo',         'Sistema hidráulico o manual asistido'],
+        ['Sellado',           'Burletes EPDM — lluvia y polvo'],
+        ['Ventanas',          'Aluminio DVH panorámicas'],
+      ]},
+      { group: '🌡️ Confort', rows: [
+        ['Aislación térmica', 'EPS 75 mm + barrera de vapor'],
+        ['Coef. térmico',     '0.048 W/m·K'],
+        ['Aislación acústica','≥ 32 dB'],
+        ['Resistencia fuego', '> 2 horas exterior'],
+        ['Temperatura uso',   '−30 °C a +55 °C'],
+        ['Resistencia sísmica','Grado 8'],
+        ['Resistencia viento','Clase 12 — hasta 120 km/h'],
+      ]},
+      { group: '🏗️ Instalación', rows: [
+        ['Tiempo expansión',  '30–60 minutos (sin grúa)'],
+        ['Personas',          '2–3 personas'],
+        ['Herramientas',      'Ninguna especial'],
+        ['Cimentación',       'Bases puntuales de hormigón'],
+        ['Reutilizaciones',   '+50 ciclos garantizados'],
+        ['Vida útil',         '+30 años'],
+      ]},
+      { group: '⚡ Eléctrico / Sanitario', rows: [
+        ['Tensión',           '220V / 50Hz (adaptable)'],
+        ['Potencia máxima',   '12 kW'],
+        ['Baño',              'Inodoro + ducha + lavamanos'],
+        ['Cocina',            'Mesada inox + espacio electrodomésticos'],
+        ['Cañerías',          'PPR — fría y caliente'],
+      ]},
+    ]
+  },
+
+  '4d40': {
+    subtitle: 'Modelo 4D-EXP-40ft · Estrella',
+    title: 'Casa Expandible 4D · 40 FT',
+    intro: 'Contenedor 40FT que se expande en cuatro direcciones, alcanzando 80 m² habitables. Disponible en distribuciones de 2 o 3 dormitorios. Ideal para familias de hasta 6 personas.',
+    uses: ['🏠 Vivienda', '🏢 Oficina', '⛏️ Minería / petróleo', '🌿 Glamping'],
+    images: [
+      { src: 'https://sc04.alicdn.com/kf/H54436b00a054400aa47c5396116624909.jpg', alt: 'Casa 4D 40FT · exterior' },
+      { src: 'https://sc04.alicdn.com/kf/HTB1b_0pXlDH8KJjy1Xcq6ApdXXaZ.jpg',    alt: 'Dormitorio principal' },
+      { src: 'https://sc04.alicdn.com/kf/HTB1y0CiXmzqK1RjSZFpq6ykSXXa3.jpg',   alt: 'Vista lateral expandida' },
+      { src: 'https://sc04.alicdn.com/kf/HTB1CkSpXoHqK1RjSZFgq6y7JXXam.jpg',   alt: 'Baño completo' },
+    ],
+    specs: [
+      { group: '📐 Dimensiones', rows: [
+        ['Tamaño cerrado',    '11.38 × 2.44 × 2.59 m'],
+        ['Tamaño expandido',  'hasta 11.4 × 6.32 × 2.43 m'],
+        ['Superficie plegada','~14.8 m²'],
+        ['Superficie expandida','80 m²'],
+        ['Altura interior',   '2.60 m'],
+        ['Peso plegado',      '~8.000 kg'],
+        ['Capacidad',         '4 a 6 personas'],
+      ]},
+      { group: '🔩 Estructura', rows: [
+        ['Estructura',        'Acero Q345 alta resistencia galvanizado'],
+        ['Paneles',           'Sandwich aluminio + EPS 75 mm'],
+        ['Techo',             'Panel sandwich 100 mm impermeable'],
+        ['Piso',              'Acero + bambú 18 mm + vinílico'],
+        ['Mecanismo',         'Sistema hidráulico o manual asistido'],
+        ['Sellado',           'Burletes EPDM — lluvia y polvo'],
+        ['Acabado exterior',  'Pintura poliéster horneada, colores custom'],
+      ]},
+      { group: '🌡️ Confort', rows: [
+        ['Aislación térmica', 'EPS 75 mm + barrera de vapor'],
+        ['Coef. térmico',     '0.048 W/m·K'],
+        ['Aislación acústica','≥ 32 dB'],
+        ['Resistencia fuego', '> 2 horas exterior'],
+        ['Temperatura uso',   '−30 °C a +55 °C'],
+        ['Resistencia sísmica','Grado 8'],
+        ['Resistencia viento','Clase 12 — hasta 120 km/h'],
+      ]},
+      { group: '⚡ Eléctrico / Sanitario', rows: [
+        ['Tensión',           '220V / 50Hz (adaptable)'],
+        ['Potencia máxima',   '12 kW'],
+        ['Tablero',           'Breakers + diferencial + tierra'],
+        ['Baño',              'Inodoro + ducha + lavamanos'],
+        ['Cocina',            'Mesada inox + espacio electrodomésticos'],
+        ['Cañerías',          'PPR — fría y caliente preinstaladas'],
+      ]},
+      { group: '🏗️ Instalación', rows: [
+        ['Tiempo expansión',  '30–60 minutos (sin grúa)'],
+        ['Personas',          '4–6 personas'],
+        ['Herramientas',      'Ninguna especial'],
+        ['Cimentación',       'Bases puntuales de hormigón'],
+        ['Reutilizaciones',   '+50 ciclos garantizados'],
+        ['Vida útil',         '+30 años'],
+      ]},
+    ]
+  },
+
+  'of2040': {
+    subtitle: 'Modelo OF-20/40 · Industrial',
+    title: 'Módulo Industrial Apilable',
+    intro: 'Contenedor prefabricado desmontable flat-pack. Máxima versatilidad para sitios remotos. Configurable como oficina, vestuario, comedor, sanitarios o vivienda temporal. Apilable hasta 3 niveles.',
+    uses: ['🏗️ Obra civil', '⛽ Petróleo / gas', '⛏️ Minería', '🌾 Agro / finca'],
+    images: [
+      { src: 'https://shopcdnpro.grainajz.com/category/443492/3454/5f199ddbd38233628f390a56bc210a64/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_2025-08-25_161509_736.jpg', alt: 'Módulo Industrial · exterior' },
+      { src: 'https://sc04.alicdn.com/kf/HTB1KdCaXoHqK1RjSZJnq6zNLpXaF.jpg', alt: 'Apilable 2 pisos' },
+      { src: 'https://sc04.alicdn.com/kf/H54436b00a054400aa47c5396116624909.jpg', alt: 'Interior oficina' },
+      { src: 'https://sc04.alicdn.com/kf/HTB1CkSpXoHqK1RjSZFgq6y7JXXam.jpg',   alt: 'Conjunto de módulos' },
+    ],
+    specs: [
+      { group: '📐 Dimensiones', rows: [
+        ['Largo 20FT',        '6.06 m'],
+        ['Largo 40FT',        '12.19 m'],
+        ['Ancho exterior',    '2.44 m'],
+        ['Alto exterior',     '2.80 m'],
+        ['Superficie 20FT',   '~13.5 m²'],
+        ['Superficie 40FT',   '~28 m²'],
+        ['Peso 20FT',         '~2.500 kg'],
+        ['Peso 40FT',         '~4.800 kg'],
+      ]},
+      { group: '🔩 Estructura', rows: [
+        ['Estructura',        'Acero Q235 galvanizado — marcos desmontables'],
+        ['Paneles de pared',  'Sandwich EPS 50 mm — chapa galvanizada'],
+        ['Techo',             'Sandwich 75 mm — cubierta con pendiente'],
+        ['Piso',              'Tablero fenólico 18 mm + vinílico industrial'],
+        ['Sistema de ruedas', 'Ruedas industriales con traba o patines'],
+        ['Uniones',           'Bulonería M12/M16 — sin soldadura en obra'],
+      ]},
+      { group: '🌡️ Confort', rows: [
+        ['Aislación térmica', 'EPS 50 mm pared / 75 mm techo'],
+        ['Resistencia fuego', 'B2 (autoextinguible)'],
+        ['Aislación acústica','≥ 28 dB'],
+        ['Temperatura trabajo','−20 °C a +50 °C'],
+        ['Resistencia viento','Hasta 100 km/h'],
+        ['Resistencia sísmica','Grado 7'],
+      ]},
+      { group: '⚡ Eléctrico', rows: [
+        ['Tensión',           '220V / 50Hz'],
+        ['Tablero',           'Breakers 16A–32A + diferencial'],
+        ['Tomas corriente',   '4–8 puntos (Schuko / IRAM)'],
+        ['Iluminación',       'Tubos LED superficie o embutidos'],
+        ['Entrada general',   'Caja estanca IP65 exterior'],
+      ]},
+      { group: '🏗️ Instalación', rows: [
+        ['Montaje en destino','4–8 horas (2–3 personas)'],
+        ['Herramientas',      'Llave de torque + nivel'],
+        ['Movilidad en sitio','Ruedas — reubicable con autoelevador'],
+        ['Transporte',        'Flat-pack — hasta 4 módulos por contenedor'],
+        ['Reutilizaciones',   'Ilimitadas — desmontable'],
+        ['Vida útil',         '+20 años con mantenimiento básico'],
+      ]},
+    ]
+  }
+
+}; // fin VC_DATA
+
+
+// ─────────────────────────────────────────
+// ESTADO DEL CARRUSEL DEL MODAL
+// ─────────────────────────────────────────
+let vcCurrentImages = [];
+let vcCurrentIdx    = 0;
+
+
+// ─────────────────────────────────────────
+// ABRIR MODAL
+// ─────────────────────────────────────────
+function openVCModal(modelKey) {
+  const data = VC_DATA[modelKey];
+  if (!data) return;
+
+  // Actualizar cabecera
+  document.getElementById('vcModalSubtitle').textContent = data.subtitle;
+  document.getElementById('vcModalTitle').textContent    = data.title;
+
+  // Carrusel: cargar imágenes
+  vcCurrentImages = data.images;
+  vcCurrentIdx    = 0;
+  renderVCCarousel();
+
+  // Ficha técnica: construir HTML
+  const pane = document.getElementById('vcSpecsPane');
+  let html = '';
+
+  // Intro + usos
+  html += `<div class="vc-specs-intro">${data.intro}</div>`;
+  html += '<div class="vc-uses">';
+  data.uses.forEach(u => { html += `<span class="vc-use-chip">${u}</span>`; });
+  html += '</div>';
+
+  // Grupos de especificaciones
+  data.specs.forEach(group => {
+    html += `<div class="vc-spec-group">`;
+    html += `<span class="vc-spec-group-title">${group.group}</span>`;
+    group.rows.forEach(([key, val]) => {
+      html += `<div class="vc-spec-row">
+                 <span class="vc-spec-key">${key}</span>
+                 <span class="vc-spec-val">${val}</span>
+               </div>`;
+    });
+    html += `</div>`;
+  });
+
+  pane.innerHTML = html;
+
+  // Mostrar overlay
+  document.getElementById('vcModalOverlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+
+// ─────────────────────────────────────────
+// CERRAR MODAL
+// ─────────────────────────────────────────
+function closeVCModal(event) {
+  // Si se llamó desde click en overlay, solo cerrar si se clickeó el fondo
+  if (event && event.target !== document.getElementById('vcModalOverlay')) return;
+  document.getElementById('vcModalOverlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+
+// ─────────────────────────────────────────
+// CARRUSEL: renderizar imagen activa y thumbnails
+// ─────────────────────────────────────────
+function renderVCCarousel() {
+  const img     = document.getElementById('vcCarImg');
+  const counter = document.getElementById('vcCarCounter');
+  const thumbs  = document.getElementById('vcThumbs');
+
+  const current = vcCurrentImages[vcCurrentIdx];
+  img.src = current.src;
+  img.alt = current.alt;
+  counter.textContent = `${vcCurrentIdx + 1} / ${vcCurrentImages.length}`;
+
+  // Thumbnails
+  thumbs.innerHTML = '';
+  vcCurrentImages.forEach((im, i) => {
+    const div = document.createElement('div');
+    div.className = 'vc-thumb' + (i === vcCurrentIdx ? ' active' : '');
+    div.innerHTML = `<img src="${im.src}" alt="${im.alt}" loading="lazy" />`;
+    div.addEventListener('click', () => {
+      vcCurrentIdx = i;
+      renderVCCarousel();
+    });
+    thumbs.appendChild(div);
+  });
+}
+
+
+// ─────────────────────────────────────────
+// CARRUSEL: avanzar / retroceder
+// ─────────────────────────────────────────
+function vcCarMove(dir) {
+  if (!vcCurrentImages.length) return;
+  vcCurrentIdx = (vcCurrentIdx + dir + vcCurrentImages.length) % vcCurrentImages.length;
+  renderVCCarousel();
+}
+
+
+// ─────────────────────────────────────────
+// TECLADO: flechas y Escape en el modal
+// ─────────────────────────────────────────
+document.addEventListener('keydown', function(e) {
+  const overlay = document.getElementById('vcModalOverlay');
+  if (!overlay.classList.contains('active')) return;
+  if (e.key === 'Escape')      closeVCModal();
+  if (e.key === 'ArrowLeft')   vcCarMove(-1);
+  if (e.key === 'ArrowRight')  vcCarMove(1);
+});
+
+
+// ─────────────────────────────────────────
+// FORMULARIO DE CONTACTO CON EMAIL
+// Validación + envío a WhatsApp
+// ─────────────────────────────────────────
+function enviarFormulario() {
+  // Referencias a campos
+  const nombre  = document.getElementById('cf-nombre');
+  const email   = document.getElementById('cf-email');
+  const telefono= document.getElementById('cf-telefono');
+  const modelo  = document.getElementById('cf-modelo');
+  const mensaje = document.getElementById('cf-mensaje');
+
+  // Limpiar estilos previos
+  [nombre, email, mensaje].forEach(f => f.style.borderColor = '');
+
+  // Validar campos obligatorios
+  let valid = true;
+  if (!nombre.value.trim() || nombre.value.trim().length < 2) {
+    nombre.style.borderColor = '#e05252';
+    nombre.focus();
+    valid = false;
+  }
+  if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+    email.style.borderColor = '#e05252';
+    if (valid) email.focus();
+    valid = false;
+  }
+  if (!mensaje.value.trim() || mensaje.value.trim().length < 10) {
+    mensaje.style.borderColor = '#e05252';
+    if (valid) mensaje.focus();
+    valid = false;
+  }
+
+  if (!valid) return;
+
+  // Construir texto para WhatsApp
+  const modeloVal = modelo.value ? modelo.options[modelo.selectedIndex].text : 'No especificado';
+  const telVal    = telefono.value.trim() || 'No ingresado';
+  const text = encodeURIComponent(
+    `Hola! Consulta desde la web:\n` +
+    `Nombre: ${nombre.value.trim()}\n` +
+    `Email: ${email.value.trim()}\n` +
+    `Teléfono: ${telVal}\n` +
+    `Modelo: ${modeloVal}\n` +
+    `Mensaje: ${mensaje.value.trim()}`
+  );
+
+  // Mostrar mensaje de éxito
+  document.getElementById('contactFormWrap').style.display = 'none';
+  document.getElementById('formSuccess').style.display     = 'block';
+
+  // Abrir WhatsApp en nueva pestaña (con pequeño delay para que se vea el éxito)
+  setTimeout(() => {
+    window.open(`https://wa.me/5492634612221?text=${text}`, '_blank');
+  }, 600);
+}
+
+// Prevenir envío con Enter en campos de texto corto
+['cf-nombre','cf-email','cf-telefono'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) el.addEventListener('keydown', e => { if (e.key === 'Enter') enviarFormulario(); });
+});
+
+</script>
+</body>
+</html>
