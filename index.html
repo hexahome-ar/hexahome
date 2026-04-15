@@ -446,367 +446,6 @@
       .gallery-item.wide { grid-column: span 2; }
       .lightbox-nav { display: none; }
     }
-
-    /* ==============================
-       NUEVO: FORMULARIO DE CONTACTO
-       — Campo email agregado
-    ============================== */
-    .contact-form {
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 14px;
-      padding: 1.75rem;
-      max-width: 440px;
-      width: 100%;
-    }
-    .contact-form h3 {
-      color: #fff;
-      font-size: 16px;
-      font-weight: 600;
-      margin-bottom: 1.25rem;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .form-group {
-      margin-bottom: 1rem;
-    }
-    .form-group label {
-      display: block;
-      font-size: 12px;
-      font-weight: 600;
-      color: #a8c8e0;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      margin-bottom: 5px;
-    }
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      width: 100%;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.18);
-      border-radius: 8px;
-      color: #fff;
-      font-size: 14px;
-      font-family: inherit;
-      padding: 10px 13px;
-      outline: none;
-      transition: border-color 0.2s, background 0.2s;
-    }
-    .form-group input::placeholder,
-    .form-group textarea::placeholder {
-      color: rgba(255,255,255,0.35);
-    }
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-      border-color: #e8640a;
-      background: rgba(255,255,255,0.12);
-    }
-    /* Validation */
-    .form-group input:invalid:not(:placeholder-shown) {
-      border-color: #e05252;
-    }
-    .form-group input:valid:not(:placeholder-shown) {
-      border-color: #3ab56a;
-    }
-    .form-group select {
-      color: rgba(255,255,255,0.7);
-      appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%237ab3d4' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 12px center;
-      padding-right: 32px;
-      cursor: pointer;
-    }
-    .form-group select option { background: #1a2e4a; color: #fff; }
-    .form-group textarea { resize: vertical; min-height: 90px; }
-    .form-submit {
-      width: 100%;
-      background: #e8640a;
-      color: #fff;
-      border: none;
-      padding: 13px;
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-      font-family: inherit;
-      transition: opacity 0.2s, transform 0.15s;
-      margin-top: 0.5rem;
-    }
-    .form-submit:hover { opacity: 0.9; transform: translateY(-1px); }
-    .form-submit:active { transform: translateY(0); }
-    .form-success {
-      display: none;
-      text-align: center;
-      padding: 1.5rem 1rem;
-      color: #7ee8a2;
-      font-size: 15px;
-    }
-    .form-success .fs-icon { font-size: 36px; display: block; margin-bottom: 0.5rem; }
-
-    /* ==============================
-       NUEVO: CATÁLOGO VISUAL — 4 TARJETAS CON MODAL
-       Sección separada del catálogo detallado existente
-    ============================== */
-    .visual-catalog-section {
-      background: #f8f8f6;
-      padding: 3.5rem 2rem;
-    }
-    .visual-catalog-inner {
-      max-width: 1060px;
-      margin: 0 auto;
-    }
-    .vc-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-      gap: 1.25rem;
-    }
-    /* Tarjeta clickeable del catálogo visual */
-    .vc-card {
-      background: #fff;
-      border: 1px solid #e0e0e0;
-      border-radius: 14px;
-      overflow: hidden;
-      cursor: pointer;
-      transition: box-shadow 0.25s, transform 0.2s;
-      display: flex;
-      flex-direction: column;
-    }
-    .vc-card:hover {
-      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-      transform: translateY(-4px);
-    }
-    .vc-img-wrap {
-      position: relative;
-      aspect-ratio: 4/3;
-      overflow: hidden;
-      background: #e8e8e4;
-    }
-    .vc-img-wrap img {
-      width: 100%; height: 100%;
-      object-fit: cover; display: block;
-      transition: transform 0.4s ease;
-    }
-    .vc-card:hover .vc-img-wrap img { transform: scale(1.06); }
-    .vc-badge {
-      position: absolute; top: 10px; left: 10px;
-      font-size: 10px; font-weight: 700;
-      letter-spacing: 0.8px; text-transform: uppercase;
-      padding: 4px 10px; border-radius: 20px;
-      backdrop-filter: blur(6px);
-    }
-    .vc-badge-orange { background: rgba(232,100,10,0.92); color: #fff; }
-    .vc-badge-navy   { background: rgba(26,46,74,0.90);  color: #fff; }
-    .vc-badge-green  { background: rgba(15,110,86,0.90); color: #fff; }
-    .vc-badge-gray   { background: rgba(60,60,60,0.85);  color: #fff; }
-    .vc-overlay-icon {
-      position: absolute; bottom: 10px; right: 10px;
-      background: rgba(0,0,0,0.45); color: #fff;
-      border-radius: 50%; width: 36px; height: 36px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 16px;
-      opacity: 0; transition: opacity 0.2s;
-    }
-    .vc-card:hover .vc-overlay-icon { opacity: 1; }
-    .vc-body { padding: 1rem 1.1rem 1.1rem; flex: 1; }
-    .vc-model { font-size: 10px; font-weight: 700; color: #e8640a; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 3px; }
-    .vc-name  { font-size: 15px; font-weight: 600; color: #1a2e4a; margin-bottom: 6px; line-height: 1.3; }
-    .vc-desc  { font-size: 12px; color: #777; line-height: 1.5; }
-    .vc-cta-hint {
-      display: flex; align-items: center; gap: 6px;
-      font-size: 11px; font-weight: 600; color: #e8640a;
-      margin-top: 10px; letter-spacing: 0.3px;
-    }
-
-    /* ==============================
-       NUEVO: MODAL DEL CATÁLOGO
-       Carrusel + Ficha técnica
-    ============================== */
-    .vc-modal-overlay {
-      display: none;
-      position: fixed; inset: 0;
-      background: rgba(10,18,30,0.88);
-      z-index: 2000;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem;
-      backdrop-filter: blur(4px);
-    }
-    .vc-modal-overlay.active { display: flex; }
-
-    .vc-modal {
-      background: #fff;
-      border-radius: 18px;
-      overflow: hidden;
-      width: 100%;
-      max-width: 900px;
-      max-height: 92vh;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 24px 64px rgba(0,0,0,0.4);
-      animation: modalIn 0.28s ease;
-    }
-    @keyframes modalIn {
-      from { opacity: 0; transform: scale(0.96) translateY(12px); }
-      to   { opacity: 1; transform: scale(1)    translateY(0); }
-    }
-
-    .vc-modal-header {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1rem 1.5rem;
-      border-bottom: 1px solid #f0f0ee;
-      flex-shrink: 0;
-    }
-    .vc-modal-title {
-      font-size: 16px; font-weight: 700; color: #1a2e4a;
-    }
-    .vc-modal-subtitle {
-      font-size: 11px; font-weight: 600; color: #e8640a;
-      letter-spacing: 1px; text-transform: uppercase;
-    }
-    .vc-modal-close {
-      background: #f4f4f2; border: none; border-radius: 50%;
-      width: 34px; height: 34px; cursor: pointer; font-size: 18px;
-      display: flex; align-items: center; justify-content: center;
-      color: #555; transition: background 0.2s;
-      flex-shrink: 0;
-    }
-    .vc-modal-close:hover { background: #e8e8e4; color: #1a2e4a; }
-
-    .vc-modal-body {
-      display: flex;
-      overflow: hidden;
-      flex: 1;
-      min-height: 0;
-    }
-
-    /* Carrusel lado izquierdo */
-    .vc-carousel {
-      width: 52%;
-      flex-shrink: 0;
-      display: flex;
-      flex-direction: column;
-      background: #111d2b;
-      position: relative;
-    }
-    .vc-carousel-main {
-      flex: 1;
-      position: relative;
-      overflow: hidden;
-      min-height: 260px;
-    }
-    .vc-carousel-main img {
-      width: 100%; height: 100%;
-      object-fit: cover; display: block;
-      transition: opacity 0.3s;
-    }
-    .vc-car-nav {
-      position: absolute; top: 50%; transform: translateY(-50%);
-      background: rgba(0,0,0,0.5); color: #fff; border: none;
-      border-radius: 50%; width: 38px; height: 38px;
-      font-size: 18px; cursor: pointer; display: flex;
-      align-items: center; justify-content: center;
-      transition: background 0.2s; z-index: 2;
-    }
-    .vc-car-nav:hover { background: rgba(232,100,10,0.8); }
-    .vc-car-prev { left: 10px; }
-    .vc-car-next { right: 10px; }
-    .vc-car-counter {
-      position: absolute; bottom: 10px; right: 12px;
-      background: rgba(0,0,0,0.55); color: rgba(255,255,255,0.85);
-      font-size: 11px; padding: 3px 9px; border-radius: 20px;
-    }
-    .vc-thumbnails {
-      display: flex; gap: 4px;
-      padding: 6px 6px;
-      background: #0d1621;
-      overflow-x: auto;
-      flex-shrink: 0;
-    }
-    .vc-thumb {
-      width: 52px; height: 40px; border-radius: 5px;
-      overflow: hidden; cursor: pointer; flex-shrink: 0;
-      border: 2px solid transparent;
-      transition: border-color 0.2s;
-    }
-    .vc-thumb.active { border-color: #e8640a; }
-    .vc-thumb img {
-      width: 100%; height: 100%;
-      object-fit: cover; display: block;
-    }
-
-    /* Specs lado derecho */
-    .vc-specs-pane {
-      flex: 1;
-      overflow-y: auto;
-      padding: 1.25rem 1.4rem;
-    }
-    .vc-specs-pane::-webkit-scrollbar { width: 4px; }
-    .vc-specs-pane::-webkit-scrollbar-thumb { background: #e0e0e0; border-radius: 2px; }
-
-    .vc-specs-intro {
-      font-size: 13px; color: #555; line-height: 1.6;
-      margin-bottom: 1.2rem; padding-bottom: 1rem;
-      border-bottom: 1px solid #f0f0ee;
-    }
-    .vc-uses { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 1rem; }
-    .vc-use-chip {
-      font-size: 11px; padding: 3px 9px;
-      border-radius: 4px; border: 1px solid #d5d5d0;
-      color: #666; background: #fafaf8;
-    }
-
-    .vc-spec-group { margin-bottom: 1rem; }
-    .vc-spec-group-title {
-      font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
-      text-transform: uppercase; color: #e8640a;
-      padding: 0 0 6px; display: block;
-      border-bottom: 1px solid #f0f0ee; margin-bottom: 6px;
-    }
-    .vc-spec-row {
-      display: flex; justify-content: space-between; align-items: baseline;
-      padding: 5px 0; border-bottom: 1px solid #f8f8f6;
-      font-size: 12px;
-    }
-    .vc-spec-row:last-child { border-bottom: none; }
-    .vc-spec-key { color: #666; flex: 0 0 48%; }
-    .vc-spec-val { color: #1a2e4a; font-weight: 600; text-align: right; flex: 0 0 50%; }
-
-    .vc-modal-footer {
-      border-top: 1px solid #f0f0ee;
-      padding: 0.9rem 1.4rem;
-      display: flex; gap: 10px;
-      flex-shrink: 0;
-    }
-    .vc-modal-cta {
-      flex: 1; text-align: center;
-      background: #e8640a; color: #fff;
-      padding: 11px; border-radius: 8px;
-      font-size: 13px; font-weight: 600;
-      text-decoration: none; border: none; cursor: pointer;
-      font-family: inherit; transition: opacity 0.2s;
-    }
-    .vc-modal-cta:hover { opacity: 0.9; }
-    .vc-modal-cta.secondary {
-      background: #f4f4f2; color: #1a2e4a;
-      border: 1px solid #e0e0e0;
-    }
-    .vc-modal-cta.secondary:hover { background: #eaeaea; }
-
-    /* Responsive modal */
-    @media (max-width: 700px) {
-      .vc-modal-body { flex-direction: column; }
-      .vc-carousel { width: 100%; min-height: 220px; }
-      .vc-carousel-main { min-height: 200px; }
-      .vc-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 420px) {
-      .vc-grid { grid-template-columns: 1fr; }
-      .contact-form { padding: 1.25rem; }
-    }
   </style>
 </head>
 <body>
@@ -879,144 +518,750 @@
 
 
 <!-- ==============================
-     NUEVO: CATÁLOGO VISUAL — 4 MODELOS
-     Tarjetas clicables que abren modal con
-     carrusel de imágenes + ficha técnica
+     CATÁLOGO COMPLETO DE MODELOS
 ============================== -->
-<section class="visual-catalog-section" id="catalogo-visual">
-  <div class="visual-catalog-inner">
-    <div class="section-title">Nuestros modelos</div>
-    <div class="section-sub">Hacé clic en cualquier modelo para ver galería y ficha técnica completa</div>
+<section id="catalogo" style="background:#fff; padding: 0 0 1rem;">
+  <div class="catalog-section">
+    <div class="section-title">Catálogo completo de modelos</div>
+    <div class="section-sub">Contenedores modulares · Viviendas prefabricadas · Oficinas · Usos industriales y turísticos</div>
     <div class="divider"></div>
 
-    <div class="vc-grid">
+    <div class="catalog-grid">
 
-      <!-- TARJETA 1 · EH-01 Casa Expandible Premium -->
-      <div class="vc-card" onclick="openVCModal('eh01')">
-        <div class="vc-img-wrap">
-          <img src="https://sc04.alicdn.com/kf/H54436b00a054400aa47c5396116624909.jpg" alt="Casa Expandible Premium EH-01" loading="lazy"/>
-          <span class="vc-badge vc-badge-orange">Más popular</span>
-          <div class="vc-overlay-icon">👁</div>
+      <!-- ══════════════════════════════════════
+           MODELO 1 · EH-01 · Casa Expandible Premium
+      ══════════════════════════════════════ -->
+      <div class="catalog-card">
+        <div class="catalog-img-wrap">
+          <img src="https://sc04.alicdn.com/kf/H54436b00a054400aa47c5396116624909.jpg"
+               alt="Casa Modular Prefabricada Expandible" loading="lazy"/>
+          <span class="catalog-tag ctag-orange">Más popular</span>
         </div>
-        <div class="vc-body">
-          <div class="vc-model">Modelo EH-01</div>
-          <div class="vc-name">Casa Expandible Premium</div>
-          <div class="vc-desc">Vivienda plegable que se transporta como contenedor y se expande en pocas horas. Sin obra civil ni grúa.</div>
-          <div class="vc-cta-hint">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
-            Ver galería y ficha técnica
+        <div class="catalog-body">
+          <div class="catalog-model">Modelo EH-01</div>
+          <div class="catalog-name">Casa Expandible Premium</div>
+          <div class="catalog-desc">Vivienda prefabricada plegable que se transporta como contenedor estándar y se expande en el sitio. Lista para habitar en pocas horas, sin obra civil ni grúa.</div>
+          <div class="catalog-use-row">
+            <span class="use-chip">🏠 Vivienda permanente</span>
+            <span class="use-chip">🏢 Oficina</span>
+            <span class="use-chip">⛏️ Campamentos industriales</span>
+            <span class="use-chip">🌿 Glamping</span>
+          </div>
+          <div class="catalog-specs">
+            <span class="cspec">20FT y 40FT</span>
+            <span class="cspec">Acero galvanizado Q235</span>
+            <span class="cspec">Anti-sísmica Niv. 8</span>
+            <span class="cspec">Instalación &lt; 4 horas</span>
+            <span class="cspec">1–3 dormitorios</span>
           </div>
         </div>
-      </div>
 
-      <!-- TARJETA 2 · 4D-EXP-20FT Casa Expandible 4D 20FT -->
-      <div class="vc-card" onclick="openVCModal('4d20')">
-        <div class="vc-img-wrap">
-          <img src="https://sc04.alicdn.com/kf/HTB1_expandable_20ft_container_home.jpg" alt="Casa Expandible 4D 20FT" loading="lazy"
-               onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80'" />
-          <span class="vc-badge vc-badge-navy">Nueva Generación</span>
-          <div class="vc-overlay-icon">👁</div>
-        </div>
-        <div class="vc-body">
-          <div class="vc-model">Modelo 4D-EXP · 20FT</div>
-          <div class="vc-name">Casa Expandible 4D</div>
-          <div class="vc-desc">Se expande en cuatro direcciones simultáneas, triplicando la superficie habitable en 30–60 minutos.</div>
-          <div class="vc-cta-hint">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
-            Ver galería y ficha técnica
+        <!-- FICHA TÉCNICA DESPLEGABLE -->
+
+        <button class="card-gallery-toggle" onclick="toggleCardGallery(this)">
+          📷 Ver galería de fotos <span class="gal-arrow">▾</span>
+        </button>
+        <div class="card-gallery">
+          <div class="card-gallery-grid">
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/H54436b00a054400aa47c5396116624909.jpg" alt="Casa Expandible · exterior desplegado" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/H0c8c5b30d67e4e3db3e6e1e2a6b7d8f8r.jpg" alt="Interior · living comedor" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1b_0pXlDH8KJjy1Xcq6ApdXXaZ.jpg" alt="Dormitorio principal" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1y0CiXmzqK1RjSZFpq6ykSXXa3.jpg" alt="Casa Expandible · modelo 40FT" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1CkSpXoHqK1RjSZFgq6y7JXXam.jpg" alt="Baño completo integrado" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/H8be0e2b5e4664c2b8c9d9e1f2a3b4c5d.jpg" alt="Proceso de instalación" loading="lazy" />
+          </div>
           </div>
         </div>
+        <button class="spec-toggle" onclick="toggleSpecs(this)">
+          Ver ficha técnica completa <span class="arrow">▾</span>
+        </button>
+        <div class="spec-panel">
+          <span class="spec-group-title">📐 Dimensiones</span>
+          <table class="spec-table">
+            <tr><td>Tamaño plegado (20FT)</td><td>6.06 × 2.44 × 2.59 m</td></tr>
+            <tr><td>Tamaño expandido (20FT)</td><td>6.06 × 6.32 × 2.59 m</td></tr>
+            <tr><td>Tamaño plegado (40FT)</td><td>12.19 × 2.44 × 2.59 m</td></tr>
+            <tr><td>Tamaño expandido (40FT)</td><td>12.19 × 6.32 × 2.59 m</td></tr>
+            <tr><td>Altura interior libre</td><td>2.40 m</td></tr>
+            <tr><td>Superficie habitable 20FT</td><td>~38 m² expandido</td></tr>
+            <tr><td>Superficie habitable 40FT</td><td>~77 m² expandido</td></tr>
+            <tr><td>Peso (20FT)</td><td>4.500 kg</td></tr>
+            <tr><td>Peso (40FT)</td><td>7.900 kg</td></tr>
+          </table>
+
+          <span class="spec-group-title">🔩 Estructura y materiales</span>
+          <table class="spec-table">
+            <tr><td>Estructura principal</td><td>Acero Q235 galvanizado en caliente</td></tr>
+            <tr><td>Espesor perfiles</td><td>4–6 mm según elemento</td></tr>
+            <tr><td>Paneles de pared</td><td>Sandwich EPS / poliuretano 75 mm</td></tr>
+            <tr><td>Panel de techo</td><td>Sandwich EPS 100 mm con cubierta metálica</td></tr>
+            <tr><td>Panel de piso</td><td>Bambú o madera contrachapada 18 mm + PVC antideslizante</td></tr>
+            <tr><td>Ventanas</td><td>Aluminio con doble vidrio hermético 5+6+5 mm</td></tr>
+            <tr><td>Puertas</td><td>Acero con aislación, cerradura de seguridad</td></tr>
+            <tr><td>Tratamiento anticorrosión</td><td>Galvanizado + pintura epóxi en polvo</td></tr>
+          </table>
+
+          <span class="spec-group-title">🌡️ Aislación y confort</span>
+          <table class="spec-table">
+            <tr><td>Aislación térmica paredes</td><td>0.048 W/m·K</td></tr>
+            <tr><td>Resistencia al fuego</td><td>&gt; 2 horas (exterior)</td></tr>
+            <tr><td>Aislación acústica</td><td>≥ 30 dB</td></tr>
+            <tr><td>Rango temperatura uso</td><td>−30 °C a +55 °C</td></tr>
+            <tr><td>Resistencia viento</td><td>Hasta 120 km/h (Clase 12)</td></tr>
+            <tr><td>Resistencia sísmica</td><td>Grado 8 (escala Mercalli)</td></tr>
+            <tr><td>Resistencia carga techo</td><td>≥ 0.5 kN/m²</td></tr>
+          </table>
+
+          <span class="spec-group-title">⚡ Instalación eléctrica</span>
+          <table class="spec-table">
+            <tr><td>Tensión de trabajo</td><td>220V / 50Hz (adaptable a 110V)</td></tr>
+            <tr><td>Consumo máximo</td><td>12 kW</td></tr>
+            <tr><td>Tablero eléctrico</td><td>Incluido con disyuntores y diferencial</td></tr>
+            <tr><td>Tomas de corriente</td><td>Múltiples puntos distribuidos</td></tr>
+            <tr><td>Iluminación</td><td>LED incluida en techo y paredes</td></tr>
+            <tr><td>Cableado</td><td>Embutido en canaletas internas</td></tr>
+            <tr><td>Puesta a tierra</td><td>Preparado — requiere conexión en destino</td></tr>
+          </table>
+
+          <span class="spec-group-title">🚿 Instalación sanitaria</span>
+          <table class="spec-table">
+            <tr><td>Baño completo</td><td>Incluido (inodoro, ducha, lavamanos)</td></tr>
+            <tr><td>Cocina</td><td>Incluida con mesada y bacha de acero inox</td></tr>
+            <tr><td>Cañerías</td><td>PPR / PVC, preparadas para conexión a red</td></tr>
+            <tr><td>Agua caliente</td><td>Preparado para termotanque eléctrico (no incluido)</td></tr>
+            <tr><td>Desagüe</td><td>Salida estándar para conectar a pozo o red cloacal</td></tr>
+          </table>
+
+          <span class="spec-group-title">🏗️ Instalación y transporte</span>
+          <table class="spec-table">
+            <tr><td>Tiempo de montaje</td><td>2–4 horas (2 personas)</td></tr>
+            <tr><td>Herramientas necesarias</td><td>Mínimas — sin soldadura</td></tr>
+            <tr><td>Cimentación</td><td>Bases de hormigón puntuales o platea</td></tr>
+            <tr><td>Transporte</td><td>Contenedor estándar ISO 20FT / 40FT</td></tr>
+            <tr><td>Reutilizaciones</td><td>+50 ciclos de montaje/desmontaje</td></tr>
+            <tr><td>Vida útil estimada</td><td>+30 años con mantenimiento básico</td></tr>
+          </table>
+        </div>
+
+        <div class="catalog-footer">
+          <a href="#contacto" class="catalog-cta alt">Consultar precio →</a>
+        </div>
       </div>
 
-      <!-- TARJETA 3 · 4D-EXP-40FT Casa Expandible 4D 40FT -->
-      <div class="vc-card" onclick="openVCModal('4d40')">
-        <div class="vc-img-wrap">
-          <img src="https://sc04.alicdn.com/kf/HTB1b_0pXlDH8KJjy1Xcq6ApdXXaZ.jpg" alt="Casa Expandible 4D 40FT" loading="lazy"
-               onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80'" />
-          <span class="vc-badge vc-badge-orange">Estrella 40FT</span>
-          <div class="vc-overlay-icon">👁</div>
+      <!-- ══════════════════════════════════════
+           MODELO 2 · GM-20 · Garaje / Depósito Modular
+      ══════════════════════════════════════ -->
+      <div class="catalog-card">
+        <div class="catalog-img-wrap">
+          <img src="https://shopcdnpro.grainajz.com/category/443492/3454/5f199ddbd38233628f390a56bc210a64/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_2025-08-25_161509_736.jpg"
+               alt="Garaje Metálico Modular Portátil 20FT" loading="lazy"/>
+          <span class="catalog-tag ctag-blue">Versátil</span>
         </div>
-        <div class="vc-body">
-          <div class="vc-model">Modelo 4D-EXP · 40FT</div>
-          <div class="vc-name">Casa Expandible 4D · 40FT</div>
-          <div class="vc-desc">Hasta 80 m² expandidos. Disponible en distribuciones de 2 o 3 dormitorios. Anti-sísmica nivel 8.</div>
-          <div class="vc-cta-hint">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
-            Ver galería y ficha técnica
+        <div class="catalog-body">
+          <div class="catalog-model">Modelo GM-20</div>
+          <div class="catalog-name">Garaje / Depósito Modular 20FT</div>
+          <div class="catalog-desc">Contenedor modular compacto desmontable y portátil. Estructura metálica de alta resistencia. Ideal como garaje, depósito, vestuario de obra o módulo de servicios.</div>
+          <div class="catalog-use-row">
+            <span class="use-chip">🚗 Garaje</span>
+            <span class="use-chip">📦 Depósito</span>
+            <span class="use-chip">🔧 Obra</span>
+            <span class="use-chip">🏭 Industrial</span>
+          </div>
+          <div class="catalog-specs">
+            <span class="cspec">20FT</span>
+            <span class="cspec">Acero estructural</span>
+            <span class="cspec">Desmontable</span>
+            <span class="cspec">Portátil</span>
           </div>
         </div>
-      </div>
 
-      <!-- TARJETA 4 · OF-20/40 Módulo Industrial -->
-      <div class="vc-card" onclick="openVCModal('of2040')">
-        <div class="vc-img-wrap">
-          <img src="https://shopcdnpro.grainajz.com/category/443492/3454/5f199ddbd38233628f390a56bc210a64/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_2025-08-25_161509_736.jpg" alt="Módulo Industrial OF-20/40" loading="lazy"
-               onerror="this.src='https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80'" />
-          <span class="vc-badge vc-badge-gray">Industrial</span>
-          <div class="vc-overlay-icon">👁</div>
-        </div>
-        <div class="vc-body">
-          <div class="vc-model">Modelo OF-20/40</div>
-          <div class="vc-name">Módulo Industrial Apilable</div>
-          <div class="vc-desc">Flat-pack desmontable para sitios remotos. Oficinas, vestuarios, comedores o vivienda temporal. Apilable hasta 3 niveles.</div>
-          <div class="vc-cta-hint">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
-            Ver galería y ficha técnica
+
+        <button class="card-gallery-toggle" onclick="toggleCardGallery(this)">
+          📷 Ver galería de fotos <span class="gal-arrow">▾</span>
+        </button>
+        <div class="card-gallery">
+          <div class="card-gallery-grid">
+          <div class="card-gallery-item">
+            <img src="https://shopcdnpro.grainajz.com/category/443492/3454/5f199ddbd38233628f390a56bc210a64/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_2025-08-25_161509_736.jpg" alt="Garaje modular · exterior" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1KdCaXoHqK1RjSZJnq6zNLpXaF.jpg" alt="Interior depósito" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1gQiXXlTH8KJjy0Fiq6ARsXXa1.jpg" alt="Garaje · puerta seccional" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1eYCbXmzqK1RjSZFpq6ykSXXaA.jpg" alt="Módulo industrial" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1w_ifXlfH8KJjy1Xbq6zLdXXaF.jpg" alt="Depósito en obra" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1R1CcXoHqK1RjSZFEq6AGMXXaI.jpg" alt="Módulo de servicios" loading="lazy" />
+          </div>
           </div>
         </div>
-      </div>
+        <button class="spec-toggle" onclick="toggleSpecs(this)">
+          Ver ficha técnica completa <span class="arrow">▾</span>
+        </button>
+        <div class="spec-panel">
+          <span class="spec-group-title">📐 Dimensiones</span>
+          <table class="spec-table">
+            <tr><td>Largo exterior</td><td>6.06 m (20FT)</td></tr>
+            <tr><td>Ancho exterior</td><td>2.44 m</td></tr>
+            <tr><td>Alto exterior</td><td>2.59 m</td></tr>
+            <tr><td>Superficie interior útil</td><td>~13.5 m²</td></tr>
+            <tr><td>Peso total</td><td>~2.200 kg</td></tr>
+            <tr><td>Carga útil máxima</td><td>5.000 kg</td></tr>
+          </table>
 
-    </div><!-- /.vc-grid -->
-  </div><!-- /.visual-catalog-inner -->
-</section>
+          <span class="spec-group-title">🔩 Estructura y materiales</span>
+          <table class="spec-table">
+            <tr><td>Estructura</td><td>Acero estructural Q235 galvanizado</td></tr>
+            <tr><td>Paneles laterales</td><td>Chapa de acero corrugada galvanizada 2 mm</td></tr>
+            <tr><td>Cubierta de techo</td><td>Chapa galvanizada con pendiente de escurrimiento</td></tr>
+            <tr><td>Piso</td><td>Entablonado de madera tratada o chapa antideslizante</td></tr>
+            <tr><td>Puerta de acceso</td><td>Puerta seccional metálica o doble hoja batiente</td></tr>
+            <tr><td>Uniones</td><td>Bulonería de alta resistencia — sin soldadura en obra</td></tr>
+            <tr><td>Acabado exterior</td><td>Pintura epoxi anticorrosiva, colores a elección</td></tr>
+          </table>
 
-<!-- ==============================
-     MODAL DEL CATÁLOGO VISUAL
-     (carrusel + ficha técnica)
-============================== -->
-<div class="vc-modal-overlay" id="vcModalOverlay" onclick="closeVCModal(event)">
-  <div class="vc-modal" id="vcModal">
+          <span class="spec-group-title">🌡️ Prestaciones</span>
+          <table class="spec-table">
+            <tr><td>Resistencia viento</td><td>Hasta 100 km/h</td></tr>
+            <tr><td>Resistencia carga nieve</td><td>≥ 0.5 kN/m²</td></tr>
+            <tr><td>Resistencia sísmica</td><td>Grado 7</td></tr>
+            <tr><td>Vida útil estimada</td><td>+20 años</td></tr>
+          </table>
 
-    <!-- Cabecera del modal -->
-    <div class="vc-modal-header">
-      <div>
-        <div class="vc-modal-subtitle" id="vcModalSubtitle">Modelo EH-01</div>
-        <div class="vc-modal-title" id="vcModalTitle">Casa Expandible Premium</div>
-      </div>
-      <button class="vc-modal-close" onclick="closeVCModal()" title="Cerrar">✕</button>
-    </div>
+          <span class="spec-group-title">⚡ Opciones eléctricas</span>
+          <table class="spec-table">
+            <tr><td>Instalación eléctrica</td><td>Opcional — puntos de luz y tomas</td></tr>
+            <tr><td>Tensión</td><td>220V / 50Hz</td></tr>
+            <tr><td>Iluminación LED</td><td>Disponible como opción</td></tr>
+          </table>
 
-    <!-- Cuerpo: carrusel izq + specs der -->
-    <div class="vc-modal-body">
-
-      <!-- Carrusel de imágenes -->
-      <div class="vc-carousel">
-        <div class="vc-carousel-main">
-          <img id="vcCarImg" src="" alt="" />
-          <button class="vc-car-nav vc-car-prev" onclick="vcCarMove(-1)">&#8249;</button>
-          <button class="vc-car-nav vc-car-next" onclick="vcCarMove(1)">&#8250;</button>
-          <span class="vc-car-counter" id="vcCarCounter">1 / 1</span>
+          <span class="spec-group-title">🏗️ Instalación y transporte</span>
+          <table class="spec-table">
+            <tr><td>Tiempo de montaje</td><td>4–8 horas (2 personas)</td></tr>
+            <tr><td>Cimentación</td><td>Bases puntuales o losa de hormigón</td></tr>
+            <tr><td>Transporte</td><td>Flat-pack — piezas apilables en contenedor</td></tr>
+            <tr><td>Reutilizaciones</td><td>Desmontable y reubicable ilimitado</td></tr>
+          </table>
         </div>
-        <div class="vc-thumbnails" id="vcThumbs"></div>
+
+        <div class="catalog-footer">
+          <a href="#contacto" class="catalog-cta">Consultar precio →</a>
+        </div>
       </div>
 
-      <!-- Ficha técnica -->
-      <div class="vc-specs-pane" id="vcSpecsPane"></div>
+      <!-- ══════════════════════════════════════
+           MODELO 3 · VL-20A · Vivienda Lujo 3 Dorm. (A)
+      ══════════════════════════════════════ -->
+      <div class="catalog-card">
+        <div class="catalog-img-wrap">
+          <img src="https://sc04.alicdn.com/kf/S0e4e2c7dcf434f138be1302943c7586eq.jpg"
+               alt="Casa Prefabricada de Lujo 3 Dormitorios" loading="lazy"/>
+          <span class="catalog-tag ctag-orange">Premium</span>
+        </div>
+        <div class="catalog-body">
+          <div class="catalog-model">Modelo VL-20A</div>
+          <div class="catalog-name">Vivienda de Lujo · 3 Dormitorios</div>
+          <div class="catalog-desc">Casa prefabricada portátil de 20 pies en acero ligero con diseño moderno tipo villa. Terminaciones de alta calidad. Lista para habitar con conexiones de agua y electricidad.</div>
+          <div class="catalog-use-row">
+            <span class="use-chip">🏡 Residencia permanente</span>
+            <span class="use-chip">🌄 Turismo premium</span>
+            <span class="use-chip">🏕️ Lodge / cabaña</span>
+          </div>
+          <div class="catalog-specs">
+            <span class="cspec">20FT</span>
+            <span class="cspec">3 dormitorios</span>
+            <span class="cspec">Acero ligero</span>
+            <span class="cspec">Alta terminación</span>
+          </div>
+        </div>
 
-    </div><!-- /.vc-modal-body -->
 
-    <!-- Footer del modal -->
-    <div class="vc-modal-footer">
-      <a href="https://wa.me/5492634612221?text=Hola!%20Me%20interesa%20conocer%20m%C3%A1s%20sobre%20los%20m%C3%B3dulos%20habitacionales." target="_blank" class="vc-modal-cta">
-        Consultar por WhatsApp
-      </a>
-      <a href="#contacto" class="vc-modal-cta secondary" onclick="closeVCModal()">
-        Enviar consulta →
-      </a>
-    </div>
+        <button class="card-gallery-toggle" onclick="toggleCardGallery(this)">
+          📷 Ver galería de fotos <span class="gal-arrow">▾</span>
+        </button>
+        <div class="card-gallery">
+          <div class="card-gallery-grid">
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/S0e4e2c7dcf434f138be1302943c7586eq.jpg" alt="Vivienda de lujo · exterior" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1qLCXXlfH8KJjy1Xbq6zLdXXaJ.jpg" alt="Interior · living premium" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1b0ifXmzqK1RjSZFpq6ykSXXaT.jpg" alt="Dormitorio principal" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1J4CeXmzqK1RjSZFpq6ykSXXaQ.jpg" alt="Baño premium" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1kHifXoHqK1RjSZFgq6y7JXXaY.jpg" alt="Cocina integrada" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1F2CbXoHqK1RjSZFEq6AGMXXaZ.jpg" alt="Detalle exterior · techo" loading="lazy" />
+          </div>
+          </div>
+        </div>
+        <button class="spec-toggle" onclick="toggleSpecs(this)">
+          Ver ficha técnica completa <span class="arrow">▾</span>
+        </button>
+        <div class="spec-panel">
+          <span class="spec-group-title">📐 Dimensiones</span>
+          <table class="spec-table">
+            <tr><td>Largo exterior</td><td>6.06 m</td></tr>
+            <tr><td>Ancho exterior</td><td>2.44 m</td></tr>
+            <tr><td>Alto exterior</td><td>2.90 m (con techo inclinado)</td></tr>
+            <tr><td>Superficie habitable</td><td>~14.5 m² (expandible con módulos)</td></tr>
+            <tr><td>Dormitorios</td><td>3 (distribuidos en módulos conectables)</td></tr>
+            <tr><td>Peso</td><td>~3.500 kg</td></tr>
+          </table>
 
-  </div><!-- /.vc-modal -->
-</div><!-- /.vc-modal-overlay -->
+          <span class="spec-group-title">🔩 Estructura y materiales</span>
+          <table class="spec-table">
+            <tr><td>Estructura</td><td>Acero liviano galvanizado G550 (Light Steel Frame)</td></tr>
+            <tr><td>Paneles exteriores</td><td>Fibrocemento 8 mm + aislación EPS 50 mm</td></tr>
+            <tr><td>Paneles interiores</td><td>Placa de yeso 12 mm con terminación pintada</td></tr>
+            <tr><td>Techo</td><td>Chapa metálica perfilada con membrana impermeabilizante</td></tr>
+            <tr><td>Piso</td><td>Parquet de madera laminada o cerámica (a elección)</td></tr>
+            <tr><td>Carpintería exterior</td><td>Aluminio con doble vidrio 5+12+5 mm</td></tr>
+            <tr><td>Puertas interiores</td><td>Madera MDF con terminación lacada</td></tr>
+            <tr><td>Puerta principal</td><td>Acero con cerradura multipunto</td></tr>
+          </table>
+
+          <span class="spec-group-title">🌡️ Aislación y confort</span>
+          <table class="spec-table">
+            <tr><td>Aislación térmica</td><td>EPS 50 mm + lana de vidrio 75 mm en techo</td></tr>
+            <tr><td>Coeficiente térmico</td><td>≤ 0.35 W/m²·K</td></tr>
+            <tr><td>Aislación acústica</td><td>≥ 35 dB</td></tr>
+            <tr><td>Resistencia al fuego</td><td>EI 30 (30 minutos)</td></tr>
+            <tr><td>Rango temperatura</td><td>−20 °C a +50 °C</td></tr>
+            <tr><td>Resistencia viento</td><td>Hasta 110 km/h</td></tr>
+            <tr><td>Resistencia sísmica</td><td>Grado 8</td></tr>
+          </table>
+
+          <span class="spec-group-title">⚡ Instalación eléctrica</span>
+          <table class="spec-table">
+            <tr><td>Tensión</td><td>220V / 50Hz</td></tr>
+            <tr><td>Tablero principal</td><td>Caja de breakers + diferencial incluidos</td></tr>
+            <tr><td>Circuitos</td><td>Iluminación / tomas / AC / cocina — independientes</td></tr>
+            <tr><td>Tomas de corriente</td><td>6–10 puntos según distribución</td></tr>
+            <tr><td>Puntos de luz</td><td>LED integrado en cielorraso</td></tr>
+            <tr><td>Pre-instalación AC</td><td>Incluida (equipo no incluido)</td></tr>
+            <tr><td>Cableado</td><td>Embutido en canaletas PVC ignífugas</td></tr>
+          </table>
+
+          <span class="spec-group-title">🚿 Instalación sanitaria</span>
+          <table class="spec-table">
+            <tr><td>Baño</td><td>Completo: inodoro, ducha, lavamanos, espejo</td></tr>
+            <tr><td>Cocina</td><td>Mesada con bacha doble acero inox + gabinetes</td></tr>
+            <tr><td>Cañerías</td><td>PPR para agua fría/caliente — conexión estándar</td></tr>
+            <tr><td>Agua caliente</td><td>Pre-instalación para termotanque 20–50 lts</td></tr>
+            <tr><td>Desagüe</td><td>PVC Ø110 mm — salida inferior para conexión a red</td></tr>
+            <tr><td>Impermeabilización</td><td>Membrana líquida en baño y cocina</td></tr>
+          </table>
+
+          <span class="spec-group-title">🏗️ Instalación</span>
+          <table class="spec-table">
+            <tr><td>Tiempo de montaje</td><td>1–3 días (equipo de 3 personas)</td></tr>
+            <tr><td>Cimentación</td><td>Losa de hormigón o bases corridas</td></tr>
+            <tr><td>Transporte</td><td>Contenedor 20FT estándar</td></tr>
+            <tr><td>Vida útil</td><td>+50 años estructura / +15 años terminaciones</td></tr>
+          </table>
+        </div>
+
+        <div class="catalog-footer">
+          <a href="#contacto" class="catalog-cta alt">Consultar precio →</a>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════
+           MODELO 4 · VL-20B · Vivienda Portátil 3 Dorm. (B)
+      ══════════════════════════════════════ -->
+      <div class="catalog-card">
+        <div class="catalog-img-wrap">
+          <img src="https://sc04.alicdn.com/kf/Hc7d2f538d90c4c91b16563a2ce44f8caS.jpg"
+               alt="Casa Prefabricada Portátil 3 Dormitorios" loading="lazy"/>
+          <span class="catalog-tag ctag-green">Nuevo modelo</span>
+        </div>
+        <div class="catalog-body">
+          <div class="catalog-model">Modelo VL-20B</div>
+          <div class="catalog-name">Vivienda Portátil · 3 Dormitorios</div>
+          <div class="catalog-desc">Variante moderna de vivienda prefabricada en acero ligero con distribución optimizada para familias. Diseño contemporáneo con grandes ventanales. Llave en mano.</div>
+          <div class="catalog-use-row">
+            <span class="use-chip">🏠 Vivienda familiar</span>
+            <span class="use-chip">🛖 Alojamiento</span>
+            <span class="use-chip">🏞️ Campo / finca</span>
+          </div>
+          <div class="catalog-specs">
+            <span class="cspec">20FT</span>
+            <span class="cspec">3 dormitorios</span>
+            <span class="cspec">Llave en mano</span>
+            <span class="cspec">Sin obra mayor</span>
+          </div>
+        </div>
+
+
+        <button class="card-gallery-toggle" onclick="toggleCardGallery(this)">
+          📷 Ver galería de fotos <span class="gal-arrow">▾</span>
+        </button>
+        <div class="card-gallery">
+          <div class="card-gallery-grid">
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/Hc7d2f538d90c4c91b16563a2ce44f8caS.jpg" alt="Vivienda portátil · 3 dormitorios · exterior" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1c3ifXmzqK1RjSZFpq6ykSXXaU.jpg" alt="Living comedor" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1o0CbXmzqK1RjSZFpq6ykSXXaV.jpg" alt="Dormitorio 1" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1p4CXXlfH8KJjy1Xbq6zLdXXaW.jpg" alt="Ventanales panorámicos" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1m1ifXmzqK1RjSZFpq6ykSXXaX.jpg" alt="Baño moderno" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1nHCbXoHqK1RjSZFEq6AGMXXaX.jpg" alt="Fachada moderna" loading="lazy" />
+          </div>
+          </div>
+        </div>
+        <button class="spec-toggle" onclick="toggleSpecs(this)">
+          Ver ficha técnica completa <span class="arrow">▾</span>
+        </button>
+        <div class="spec-panel">
+          <span class="spec-group-title">📐 Dimensiones</span>
+          <table class="spec-table">
+            <tr><td>Largo exterior</td><td>6.06 m</td></tr>
+            <tr><td>Ancho exterior</td><td>2.44 m</td></tr>
+            <tr><td>Alto exterior</td><td>3.10 m (techos altos)</td></tr>
+            <tr><td>Altura interior</td><td>2.70 m</td></tr>
+            <tr><td>Superficie habitable</td><td>~15 m² (ampliable por módulos)</td></tr>
+            <tr><td>Dormitorios</td><td>3 en configuración modular</td></tr>
+            <tr><td>Peso estimado</td><td>~3.800 kg</td></tr>
+          </table>
+
+          <span class="spec-group-title">🔩 Estructura y materiales</span>
+          <table class="spec-table">
+            <tr><td>Estructura</td><td>Light Steel Frame — acero galvanizado G550</td></tr>
+            <tr><td>Revestimiento exterior</td><td>Panel compuesto de aluminio (ACM) o fibrocemento</td></tr>
+            <tr><td>Aislación integrada</td><td>Lana mineral 75 mm entre perfiles</td></tr>
+            <tr><td>Revestimiento interior</td><td>Placa de yeso 12.5 mm con terminación</td></tr>
+            <tr><td>Techo</td><td>Panel sandwich 100 mm con cubierta metálica</td></tr>
+            <tr><td>Piso</td><td>Entablonado flotante de madera laminada</td></tr>
+            <tr><td>Ventanas</td><td>Aluminio color negro / blanco con DVH</td></tr>
+            <tr><td>Diseño</td><td>Fachada moderna con grandes ventanales</td></tr>
+          </table>
+
+          <span class="spec-group-title">🌡️ Aislación y confort</span>
+          <table class="spec-table">
+            <tr><td>Aislación térmica</td><td>Lana mineral 75 mm paredes + 100 mm techo</td></tr>
+            <tr><td>Coeficiente térmico</td><td>≤ 0.30 W/m²·K</td></tr>
+            <tr><td>Aislación acústica</td><td>≥ 38 dB</td></tr>
+            <tr><td>Resistencia al fuego</td><td>EI 60</td></tr>
+            <tr><td>Resistencia sísmica</td><td>Grado 8</td></tr>
+            <tr><td>Resistencia viento</td><td>Hasta 120 km/h</td></tr>
+          </table>
+
+          <span class="spec-group-title">⚡ Instalación eléctrica</span>
+          <table class="spec-table">
+            <tr><td>Tensión</td><td>220V / 50Hz</td></tr>
+            <tr><td>Tablero</td><td>Caja estanca con breakers + diferencial + puesta tierra</td></tr>
+            <tr><td>Circuitos</td><td>Mínimo 4 circuitos independientes</td></tr>
+            <tr><td>Tomas</td><td>8–12 puntos según plano</td></tr>
+            <tr><td>Iluminación</td><td>Embutida LED en todas las habitaciones</td></tr>
+            <tr><td>Pre-inst. AC</td><td>Split / minisplit (equipo no incluido)</td></tr>
+            <tr><td>Exterior</td><td>Punto de luz y toma exterior IP44</td></tr>
+          </table>
+
+          <span class="spec-group-title">🚿 Instalación sanitaria</span>
+          <table class="spec-table">
+            <tr><td>Baño principal</td><td>Ducha + inodoro + vanitory + espejo con luz</td></tr>
+            <tr><td>Cocina</td><td>Muebles bajo mesada + alacenas + bacha acero inox</td></tr>
+            <tr><td>Cañerías agua</td><td>PPR bicapa — fría y caliente</td></tr>
+            <tr><td>Termotanque</td><td>Pre-instalación — eléctrico o solar (no incluido)</td></tr>
+            <tr><td>Desagüe</td><td>PVC Ø110 mm sifones en todos los artefactos</td></tr>
+          </table>
+
+          <span class="spec-group-title">🏗️ Instalación</span>
+          <table class="spec-table">
+            <tr><td>Tiempo de montaje</td><td>2–4 días (equipo de 4 personas)</td></tr>
+            <tr><td>Cimentación recomendada</td><td>Losa de hormigón H-21 o bases corridas</td></tr>
+            <tr><td>Transporte</td><td>Contenedor 20FT — piezas flat-pack</td></tr>
+            <tr><td>Vida útil</td><td>+50 años estructura metálica</td></tr>
+          </table>
+        </div>
+
+        <div class="catalog-footer">
+          <a href="#contacto" class="catalog-cta">Consultar precio →</a>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════
+           MODELO 5 · 4D-EXP · Casa Expandible 4D
+      ══════════════════════════════════════ -->
+      <div class="catalog-card">
+        <div class="catalog-img-wrap">
+          <img src="https://sc04.alicdn.com/kf/Hd62bf15b22f94d9aa8ae510ff1f1aaf25.png"
+               alt="Casa Contenedor Expandible 4D" loading="lazy"/>
+          <span class="catalog-tag ctag-orange">Estrella</span>
+        </div>
+        <div class="catalog-body">
+          <div class="catalog-model">Modelo 4D-EXP</div>
+          <div class="catalog-name">Casa Expandible 4D · Nueva Generación</div>
+          <div class="catalog-desc">Contenedor que se expande en cuatro direcciones simultáneas, triplicando la superficie habitable sin grúa. La solución más rápida del mercado para vivienda, ocio o trabajo remoto.</div>
+          <div class="catalog-use-row">
+            <span class="use-chip">🏠 Vivienda</span>
+            <span class="use-chip">💼 Oficina</span>
+            <span class="use-chip">⛏️ Minería / petróleo</span>
+            <span class="use-chip">🌿 Glamping</span>
+          </div>
+          <div class="catalog-specs">
+            <span class="cspec">Expandible 4D</span>
+            <span class="cspec">Sin grúa</span>
+            <span class="cspec">Anti-sísmica Niv. 8</span>
+            <span class="cspec">Personalizable</span>
+          </div>
+        </div>
+
+
+        <button class="card-gallery-toggle" onclick="toggleCardGallery(this)">
+          📷 Ver galería de fotos <span class="gal-arrow">▾</span>
+        </button>
+        <div class="card-gallery">
+          <div class="card-gallery-grid">
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/Hd62bf15b22f94d9aa8ae510ff1f1aaf25.png" alt="Casa 4D · expandida · exterior" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1r0CXXlfH8KJjy1Xbq6zLdXXaY.jpg" alt="Proceso de expansión" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1q1ifXmzqK1RjSZFpq6ykSXXaZ.jpg" alt="Interior expandido · living" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1s4CbXoHqK1RjSZFEq6AGMXXaY.jpg" alt="Cocina y comedor abierto" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1tHCXXlfH8KJjy1Xbq6zLdXXaZ.jpg" alt="Dormitorio en módulo 4D" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1u1ifXmzqK1RjSZFpq6ykSXXa0.jpg" alt="Transporte en contenedor" loading="lazy" />
+          </div>
+          </div>
+        </div>
+        <button class="spec-toggle" onclick="toggleSpecs(this)">
+          Ver ficha técnica completa <span class="arrow">▾</span>
+        </button>
+        <div class="spec-panel">
+          <span class="spec-group-title">📐 Dimensiones</span>
+          <table class="spec-table">
+            <tr><td>Tamaño cerrado (transporte)</td><td>6.06 × 2.44 × 2.59 m</td></tr>
+            <tr><td>Tamaño expandido total</td><td>hasta 11.5 × 7.2 × 2.90 m</td></tr>
+            <tr><td>Superficie plegada</td><td>~14.8 m²</td></tr>
+            <tr><td>Superficie expandida</td><td>~55–80 m² según modelo</td></tr>
+            <tr><td>Altura interior expandido</td><td>2.60 m</td></tr>
+            <tr><td>Peso plegado</td><td>~5.500 kg</td></tr>
+          </table>
+
+          <span class="spec-group-title">🔩 Estructura y materiales</span>
+          <table class="spec-table">
+            <tr><td>Estructura</td><td>Acero Q345 de alta resistencia galvanizado</td></tr>
+            <tr><td>Paneles expandibles</td><td>Sandwich aluminio + EPS 75 mm</td></tr>
+            <tr><td>Techo expandible</td><td>Panel sandwich 100 mm impermeable</td></tr>
+            <tr><td>Piso</td><td>Acero + bambú 18 mm + vinílico antideslizante</td></tr>
+            <tr><td>Mecanismo expansión</td><td>Sistema hidráulico o manual asistido</td></tr>
+            <tr><td>Sellado perimetral</td><td>Burletes de EPDM — resistente a lluvia y polvo</td></tr>
+            <tr><td>Ventanas</td><td>Aluminio DVH — panorámicas en secciones expandidas</td></tr>
+            <tr><td>Acabado exterior</td><td>Pintura poliéster horneada, colores personalizables</td></tr>
+          </table>
+
+          <span class="spec-group-title">🌡️ Aislación y confort</span>
+          <table class="spec-table">
+            <tr><td>Aislación térmica</td><td>EPS 75 mm + barrera de vapor</td></tr>
+            <tr><td>Coeficiente térmico</td><td>0.048 W/m·K</td></tr>
+            <tr><td>Aislación acústica</td><td>≥ 32 dB</td></tr>
+            <tr><td>Resistencia fuego exterior</td><td>&gt; 2 horas</td></tr>
+            <tr><td>Temperatura de uso</td><td>−30 °C a +55 °C</td></tr>
+            <tr><td>Resistencia sísmica</td><td>Grado 8</td></tr>
+            <tr><td>Resistencia viento</td><td>Clase 12 — hasta 120 km/h</td></tr>
+            <tr><td>Carga techo</td><td>≥ 0.5 kN/m²</td></tr>
+          </table>
+
+          <span class="spec-group-title">⚡ Instalación eléctrica</span>
+          <table class="spec-table">
+            <tr><td>Tensión</td><td>220V / 50Hz (adaptable)</td></tr>
+            <tr><td>Potencia máxima</td><td>12 kW</td></tr>
+            <tr><td>Tablero</td><td>Breakers + diferencial + puesta a tierra</td></tr>
+            <tr><td>Circuitos</td><td>Iluminación / tomas / climatización / cocina</td></tr>
+            <tr><td>Iluminación</td><td>LED integrado en todas las áreas</td></tr>
+            <tr><td>Pre-inst. aire</td><td>Split tipo cassette (no incluido)</td></tr>
+            <tr><td>Cableado</td><td>Multinúcleo embutido — certificación CE</td></tr>
+          </table>
+
+          <span class="spec-group-title">🚿 Instalación sanitaria</span>
+          <table class="spec-table">
+            <tr><td>Baño</td><td>Inodoro + ducha + lavamanos + accesorios</td></tr>
+            <tr><td>Cocina</td><td>Mesada inox + bajo mesada + espacio para electrodomésticos</td></tr>
+            <tr><td>Cañerías</td><td>PPR — fría y caliente preinstaladas</td></tr>
+            <tr><td>Agua caliente</td><td>Salida para termotanque eléctrico o solar</td></tr>
+            <tr><td>Desagüe</td><td>PVC Ø110 mm — salida configurable</td></tr>
+          </table>
+
+          <span class="spec-group-title">🏗️ Instalación y transporte</span>
+          <table class="spec-table">
+            <tr><td>Tiempo expansión</td><td>30–60 minutos (sin grúa)</td></tr>
+            <tr><td>Personas necesarias</td><td>2–3 personas</td></tr>
+            <tr><td>Herramientas</td><td>Ninguna especial</td></tr>
+            <tr><td>Cimentación</td><td>Bases puntuales de hormigón o apoyos regulables</td></tr>
+            <tr><td>Transporte</td><td>Estándar ISO — camión plataforma</td></tr>
+            <tr><td>Reutilizaciones</td><td>+50 ciclos garantizados</td></tr>
+            <tr><td>Vida útil</td><td>+30 años</td></tr>
+          </table>
+        </div>
+
+        <div class="catalog-footer">
+          <a href="#contacto" class="catalog-cta alt">Consultar precio →</a>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════
+           MODELO 6 · OF-20/40 · Oficina/Módulo sobre Ruedas
+      ══════════════════════════════════════ -->
+      <div class="catalog-card">
+        <div class="catalog-img-wrap">
+          <img src="https://shopcdnpro.grainajz.com/category/443492/3454/cf25e33c112c1b384c0951a35a726092/1.jpg"
+               alt="Contenedor Oficina Modular sobre Ruedas 20ft 40ft" loading="lazy"/>
+          <span class="catalog-tag ctag-blue">Industrial</span>
+        </div>
+        <div class="catalog-body">
+          <div class="catalog-model">Modelo OF-20/40</div>
+          <div class="catalog-name">Oficina / Módulo Industrial sobre Ruedas</div>
+          <div class="catalog-desc">Contenedor prefabricado desmontable flat-pack sobre ruedas. Máxima versatilidad para sitios remotos. Configurable como oficina, vestuario, comedor, sanitarios o vivienda temporal.</div>
+          <div class="catalog-use-row">
+            <span class="use-chip">🏗️ Obra civil</span>
+            <span class="use-chip">⛽ Petróleo / gas</span>
+            <span class="use-chip">⛏️ Minería</span>
+            <span class="use-chip">🚜 Agro / finca</span>
+          </div>
+          <div class="catalog-specs">
+            <span class="cspec">20FT y 40FT</span>
+            <span class="cspec">Sobre ruedas</span>
+            <span class="cspec">Flat-pack</span>
+            <span class="cspec">Reubicable</span>
+          </div>
+        </div>
+
+
+        <button class="card-gallery-toggle" onclick="toggleCardGallery(this)">
+          📷 Ver galería de fotos <span class="gal-arrow">▾</span>
+        </button>
+        <div class="card-gallery">
+          <div class="card-gallery-grid">
+          <div class="card-gallery-item">
+            <img src="https://shopcdnpro.grainajz.com/category/443492/3454/cf25e33c112c1b384c0951a35a726092/1.jpg" alt="Oficina modular · exterior" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1v4CbXoHqK1RjSZFEq6AGMXXaZ.jpg" alt="Interior oficina" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1w1ifXmzqK1RjSZFpq6ykSXXa1.jpg" alt="Módulo sobre ruedas" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1xHCXXlfH8KJjy1Xbq6zLdXXa0.jpg" alt="Módulo industrial 40FT" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1y1ifXmzqK1RjSZFpq6ykSXXa2.jpg" alt="Vestuario / comedor" loading="lazy" />
+          </div>
+          <div class="card-gallery-item">
+            <img src="https://sc04.alicdn.com/kf/HTB1z4CbXoHqK1RjSZFEq6AGMXXa0.jpg" alt="Módulo flat-pack · transporte" loading="lazy" />
+          </div>
+          </div>
+        </div>
+        <button class="spec-toggle" onclick="toggleSpecs(this)">
+          Ver ficha técnica completa <span class="arrow">▾</span>
+        </button>
+        <div class="spec-panel">
+          <span class="spec-group-title">📐 Dimensiones</span>
+          <table class="spec-table">
+            <tr><td>Largo (20FT)</td><td>6.06 m</td></tr>
+            <tr><td>Largo (40FT)</td><td>12.19 m</td></tr>
+            <tr><td>Ancho exterior</td><td>2.44 m</td></tr>
+            <tr><td>Alto exterior</td><td>2.80 m (con ruedas o patines)</td></tr>
+            <tr><td>Altura interior</td><td>2.50 m</td></tr>
+            <tr><td>Superficie interior (20FT)</td><td>~13.5 m²</td></tr>
+            <tr><td>Superficie interior (40FT)</td><td>~28 m²</td></tr>
+            <tr><td>Peso (20FT)</td><td>~2.500 kg</td></tr>
+            <tr><td>Peso (40FT)</td><td>~4.800 kg</td></tr>
+          </table>
+
+          <span class="spec-group-title">🔩 Estructura y materiales</span>
+          <table class="spec-table">
+            <tr><td>Estructura</td><td>Acero Q235 galvanizado — marcos desmontables</td></tr>
+            <tr><td>Paneles de pared</td><td>Sandwich EPS 50 mm — chapa galvanizada ext. + int.</td></tr>
+            <tr><td>Techo</td><td>Panel sandwich 75 mm — cubierta metálica con pendiente</td></tr>
+            <tr><td>Piso</td><td>Tablero fenólico 18 mm + vinílico industrial antideslizante</td></tr>
+            <tr><td>Sistema de ruedas</td><td>Ruedas metálicas industriales con traba o patines fijos</td></tr>
+            <tr><td>Uniones</td><td>Bulonería estándar M12/M16 — sin soldadura en obra</td></tr>
+            <tr><td>Puerta</td><td>Acero con burlete de sellado, ancho 900 mm mínimo</td></tr>
+            <tr><td>Ventanas</td><td>Aluminio con vidrio simple o DVH (a elección)</td></tr>
+          </table>
+
+          <span class="spec-group-title">🌡️ Aislación y confort</span>
+          <table class="spec-table">
+            <tr><td>Aislación térmica</td><td>EPS 50 mm pared / 75 mm techo</td></tr>
+            <tr><td>Resistencia fuego</td><td>Clasificación B2 (autoextinguible)</td></tr>
+            <tr><td>Aislación acústica</td><td>≥ 28 dB</td></tr>
+            <tr><td>Temperatura de trabajo</td><td>−20 °C a +50 °C</td></tr>
+            <tr><td>Resistencia viento</td><td>Hasta 100 km/h</td></tr>
+            <tr><td>Resistencia sísmica</td><td>Grado 7</td></tr>
+          </table>
+
+          <span class="spec-group-title">⚡ Instalación eléctrica</span>
+          <table class="spec-table">
+            <tr><td>Tensión</td><td>220V / 50Hz</td></tr>
+            <tr><td>Tablero eléctrico</td><td>Caja con breakers 16A–32A + diferencial</td></tr>
+            <tr><td>Circuitos</td><td>Iluminación + tomas corriente + climatización</td></tr>
+            <tr><td>Tomas de corriente</td><td>4–8 puntos distribuidos (Schuko / IRAM)</td></tr>
+            <tr><td>Iluminación</td><td>Tubos LED superficie o embutidos</td></tr>
+            <tr><td>Climatización</td><td>Pre-instalación para split de pared</td></tr>
+            <tr><td>Entrada general</td><td>Caja estanca IP65 en exterior</td></tr>
+          </table>
+
+          <span class="spec-group-title">🚿 Instalación sanitaria (opcional)</span>
+          <table class="spec-table">
+            <tr><td>Baño completo</td><td>Disponible como opción — inodoro + ducha + lavamanos</td></tr>
+            <tr><td>Cañerías</td><td>PPR preinstaladas — conexión en destino</td></tr>
+            <tr><td>Desagüe</td><td>PVC Ø110 mm — salida lateral o inferior</td></tr>
+            <tr><td>Cocina / kitchenette</td><td>Disponible como opción con bacha + mesada</td></tr>
+          </table>
+
+          <span class="spec-group-title">🏗️ Instalación y transporte</span>
+          <table class="spec-table">
+            <tr><td>Montaje en destino</td><td>4–8 horas (2–3 personas)</td></tr>
+            <tr><td>Herramientas</td><td>Llave de torque + nivel — sin soldadura</td></tr>
+            <tr><td>Movilidad en sitio</td><td>Ruedas industriales — reubicable con autoelevador</td></tr>
+            <tr><td>Transporte largo</td><td>Flat-pack en contenedor — hasta 4 módulos por contenedor</td></tr>
+            <tr><td>Reutilizaciones</td><td>Ilimitadas — desmontable y remontable</td></tr>
+            <tr><td>Vida útil</td><td>+20 años con mantenimiento básico</td></tr>
+          </table>
+        </div>
 
         <div class="catalog-footer">
           <a href="#contacto" class="catalog-cta">Consultar precio →</a>
@@ -1096,58 +1341,9 @@
 <!-- CONTACTO -->
 <section class="cta-section" id="contacto">
   <h2>¿Te interesa un módulo habitacional?</h2>
-  <p>Completá el formulario o escribinos directamente. Respondemos en menos de 24 hs con presupuesto sin cargo.</p>
+  <p>Escribinos por WhatsApp para recibir asesoramiento personalizado, catálogos completos y presupuesto sin cargo.</p>
 
   <div class="contact-grid">
-
-    <!-- NUEVO: Formulario de contacto con campo email -->
-    <div class="contact-form">
-      <h3>✉️ Envianos tu consulta</h3>
-      <div id="contactFormWrap">
-        <!-- Campo: Nombre -->
-        <div class="form-group">
-          <label for="cf-nombre">Nombre y apellido *</label>
-          <input type="text" id="cf-nombre" name="nombre" placeholder="Ej: Juan Pérez" required minlength="2" />
-        </div>
-        <!-- Campo: Email (NUEVO — obligatorio, validado) -->
-        <div class="form-group">
-          <label for="cf-email">Correo electrónico *</label>
-          <input type="email" id="cf-email" name="email" placeholder="tucorreo@ejemplo.com" required />
-        </div>
-        <!-- Campo: Teléfono -->
-        <div class="form-group">
-          <label for="cf-telefono">Teléfono / WhatsApp</label>
-          <input type="tel" id="cf-telefono" name="telefono" placeholder="Ej: +54 9 261 000-0000" />
-        </div>
-        <!-- Campo: Modelo de interés -->
-        <div class="form-group">
-          <label for="cf-modelo">Modelo de interés</label>
-          <select id="cf-modelo" name="modelo">
-            <option value="">— Seleccioná un modelo —</option>
-            <option value="EH-01">EH-01 · Casa Expandible Premium</option>
-            <option value="4D-20FT">4D-EXP 20FT · Casa Expandible 4D</option>
-            <option value="4D-40FT">4D-EXP 40FT · Casa Expandible 4D Grande</option>
-            <option value="OF-2040">OF-20/40 · Módulo Industrial Apilable</option>
-            <option value="otro">Otro / No sé aún</option>
-          </select>
-        </div>
-        <!-- Campo: Mensaje -->
-        <div class="form-group">
-          <label for="cf-mensaje">Mensaje *</label>
-          <textarea id="cf-mensaje" name="mensaje" placeholder="Contanos qué necesitás: uso, terreno, cantidad de personas, plazo estimado..." required minlength="10"></textarea>
-        </div>
-        <button type="button" class="form-submit" onclick="enviarFormulario()">
-          Enviar consulta →
-        </button>
-      </div>
-      <!-- Mensaje de éxito (oculto hasta envío) -->
-      <div class="form-success" id="formSuccess">
-        <span class="fs-icon">✅</span>
-        <strong>¡Consulta enviada!</strong><br>
-        Te respondemos en menos de 24 hs por email o WhatsApp.
-      </div>
-    </div>
-
     <div class="contact-info">
       <div class="contact-item">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.088.543 4.05 1.49 5.762L0 24l6.433-1.467A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.95 0-3.77-.524-5.33-1.436l-.381-.226-3.946.9.946-3.847-.247-.395A9.8 9.8 0 012.182 12C2.182 6.579 6.579 2.182 12 2.182S21.818 6.579 21.818 12 17.421 21.818 12 21.818z"/></svg>
@@ -1159,7 +1355,7 @@
       </div>
       <div class="contact-item">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="#7ab3d4"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-        <span><a href="/cdn-cgi/l/info.hexahome@gmail.com#630a0d050c4d0b061b020b0c0e0623040e020a0f4d000c0e" style="color:#7ab3d4;"><span class="__cf_email__" data-cfemail="dbb2b5bdb4f5b3bea3bab3b4b6be9bbcb6bab2b7f5b8b4b6">[email&#160;protected]</span></a><br><small style="color:#7ab3d4;">Respondemos en menos de 24hs</small></span>
+        <span><a href="/cdn-cgi/l/email-protection#630a0d050c4d0b061b020b0c0e0623040e020a0f4d000c0e" style="color:#7ab3d4;"><span class="__cf_email__" data-cfemail="dbb2b5bdb4f5b3bea3bab3b4b6be9bbcb6bab2b7f5b8b4b6">[email&#160;protected]</span></a><br><small style="color:#7ab3d4;">Respondemos en menos de 24hs</small></span>
       </div>
       <a href="https://wa.me/5492634612221?text=Hola!%20Me%20interesa%20conocer%20m%C3%A1s%20sobre%20los%20m%C3%B3dulos%20habitacionales." class="wa-btn" target="_blank">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.088.543 4.05 1.49 5.762L0 24l6.433-1.467A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.95 0-3.77-.524-5.33-1.436l-.381-.226-3.946.9.946-3.847-.247-.395A9.8 9.8 0 012.182 12C2.182 6.579 6.579 2.182 12 2.182S21.818 6.579 21.818 12 17.421 21.818 12 21.818z"/></svg>
